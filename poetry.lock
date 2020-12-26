@@ -1,0 +1,713 @@
+[[package]]
+name = "anyascii"
+version = "0.1.7"
+description = "Unicode to ASCII transliteration"
+category = "main"
+optional = false
+python-versions = ">=3.3"
+
+[[package]]
+name = "appdirs"
+version = "1.4.4"
+description = "A small Python module for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "asgiref"
+version = "3.3.1"
+description = "ASGI specs, helper code, and adapters"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.extras]
+tests = ["pytest", "pytest-asyncio"]
+
+[[package]]
+name = "beautifulsoup4"
+version = "4.8.2"
+description = "Screen-scraping library"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+soupsieve = ">=1.2"
+
+[package.extras]
+html5lib = ["html5lib"]
+lxml = ["lxml"]
+
+[[package]]
+name = "boto3"
+version = "1.16.43"
+description = "The AWS SDK for Python"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+botocore = ">=1.19.43,<1.20.0"
+jmespath = ">=0.7.1,<1.0.0"
+s3transfer = ">=0.3.0,<0.4.0"
+
+[[package]]
+name = "botocore"
+version = "1.19.43"
+description = "Low-level, data-driven core of boto 3."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+jmespath = ">=0.7.1,<1.0.0"
+python-dateutil = ">=2.1,<3.0.0"
+urllib3 = {version = ">=1.25.4,<1.27", markers = "python_version != \"3.4\""}
+
+[[package]]
+name = "certifi"
+version = "2020.12.5"
+description = "Python package for providing Mozilla's CA Bundle."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "chardet"
+version = "4.0.0"
+description = "Universal encoding detector for Python 2 and 3"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[[package]]
+name = "dj-database-url"
+version = "0.5.0"
+description = "Use Database URLs in your Django Application."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "django"
+version = "3.1.4"
+description = "A high-level Python Web framework that encourages rapid development and clean, pragmatic design."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+asgiref = ">=3.2.10,<4"
+pytz = "*"
+sqlparse = ">=0.2.2"
+
+[package.extras]
+argon2 = ["argon2-cffi (>=16.1.0)"]
+bcrypt = ["bcrypt"]
+
+[[package]]
+name = "django-bakery"
+version = "0.12.7"
+description = "A set of helpers for baking your Django site out as flat files"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+boto3 = ">=1.4.4"
+fs = ">=2.0.17"
+six = ">1.5.2"
+
+[[package]]
+name = "django-filter"
+version = "2.4.0"
+description = "Django-filter is a reusable Django application for allowing users to filter querysets dynamically."
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.dependencies]
+Django = ">=2.2"
+
+[[package]]
+name = "django-modelcluster"
+version = "5.1"
+description = "Django extension to allow working with 'clusters' of models as a single unit, independently of the database"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.dependencies]
+pytz = ">=2015.2"
+
+[package.extras]
+taggit = ["django-taggit (>=0.20)"]
+
+[[package]]
+name = "django-taggit"
+version = "1.3.0"
+description = "django-taggit is a reusable Django application for simple tagging."
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.dependencies]
+Django = ">=1.11"
+
+[[package]]
+name = "django-treebeard"
+version = "4.3.1"
+description = "Efficient tree implementations for Django"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+Django = ">=1.8"
+
+[[package]]
+name = "djangorestframework"
+version = "3.12.2"
+description = "Web APIs for Django, made easy."
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.dependencies]
+django = ">=2.2"
+
+[[package]]
+name = "draftjs-exporter"
+version = "2.1.7"
+description = "Library to convert rich text from Draft.js raw ContentState to HTML"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+html5lib = ["beautifulsoup4 (>=4.4.1,<5)", "html5lib (>=0.999,<=1.0.1)"]
+lxml = ["lxml (>=4.2.0,<5)"]
+testing = ["tox (>=2.3.1)", "markov-draftjs (==0.1.1)", "memory-profiler (==0.47)", "psutil (==5.4.1)", "coverage (>=4.1.0)", "flake8 (>=3.2.0)", "isort (==4.2.5)", "beautifulsoup4 (>=4.4.1,<5)", "html5lib (>=0.999,<=1.0.1)", "lxml (>=4.2.0,<5)"]
+
+[[package]]
+name = "et-xmlfile"
+version = "1.0.1"
+description = "An implementation of lxml.xmlfile for the standard library"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "fs"
+version = "2.4.11"
+description = "Python's filesystem abstraction layer"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+appdirs = ">=1.4.3,<1.5.0"
+pytz = "*"
+six = ">=1.10,<2.0"
+
+[package.extras]
+scandir_ = ["scandir (>=1.5,<2.0)"]
+
+[[package]]
+name = "html5lib"
+version = "1.1"
+description = "HTML parser based on the WHATWG HTML specification"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.dependencies]
+six = ">=1.9"
+webencodings = "*"
+
+[package.extras]
+all = ["genshi", "chardet (>=2.2)", "lxml"]
+chardet = ["chardet (>=2.2)"]
+genshi = ["genshi"]
+lxml = ["lxml"]
+
+[[package]]
+name = "idna"
+version = "2.10"
+description = "Internationalized Domain Names in Applications (IDNA)"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[[package]]
+name = "jdcal"
+version = "1.4.1"
+description = "Julian dates from proleptic Gregorian and Julian calendars."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "jmespath"
+version = "0.10.0"
+description = "JSON Matching Expressions"
+category = "main"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
+name = "l18n"
+version = "2020.6.1"
+description = "Internationalization for pytz timezones and territories"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+pytz = ">=2020.1"
+six = "*"
+
+[[package]]
+name = "openpyxl"
+version = "3.0.5"
+description = "A Python library to read/write Excel 2010 xlsx/xlsm files"
+category = "main"
+optional = false
+python-versions = ">=3.6,"
+
+[package.dependencies]
+et-xmlfile = "*"
+jdcal = "*"
+
+[[package]]
+name = "pillow"
+version = "8.0.1"
+description = "Python Imaging Library (Fork)"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
+name = "python-dateutil"
+version = "2.8.1"
+description = "Extensions to the standard Python datetime module"
+category = "main"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
+
+[package.dependencies]
+six = ">=1.5"
+
+[[package]]
+name = "pytz"
+version = "2020.5"
+description = "World timezone definitions, modern and historical"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "requests"
+version = "2.25.1"
+description = "Python HTTP for Humans."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.dependencies]
+certifi = ">=2017.4.17"
+chardet = ">=3.0.2,<5"
+idna = ">=2.5,<3"
+urllib3 = ">=1.21.1,<1.27"
+
+[package.extras]
+security = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)"]
+socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
+
+[[package]]
+name = "s3transfer"
+version = "0.3.3"
+description = "An Amazon S3 Transfer Manager"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+botocore = ">=1.12.36,<2.0a.0"
+
+[[package]]
+name = "six"
+version = "1.15.0"
+description = "Python 2 and 3 compatibility utilities"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
+name = "soupsieve"
+version = "2.1"
+description = "A modern CSS selector implementation for Beautiful Soup."
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[[package]]
+name = "sqlparse"
+version = "0.4.1"
+description = "A non-validating SQL parser."
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[[package]]
+name = "tablib"
+version = "3.0.0"
+description = "Format agnostic tabular data library (XLS, JSON, YAML, CSV)"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+openpyxl = {version = ">=2.6.0", optional = true, markers = "extra == \"xlsx\""}
+xlrd = {version = "*", optional = true, markers = "extra == \"xls\""}
+xlwt = {version = "*", optional = true, markers = "extra == \"xls\""}
+
+[package.extras]
+all = ["markuppy", "odfpy", "openpyxl (>=2.6.0)", "pandas", "pyyaml", "tabulate", "xlrd", "xlwt"]
+cli = ["tabulate"]
+html = ["markuppy"]
+ods = ["odfpy"]
+pandas = ["pandas"]
+xls = ["xlrd", "xlwt"]
+xlsx = ["openpyxl (>=2.6.0)"]
+yaml = ["pyyaml"]
+
+[[package]]
+name = "unidecode"
+version = "1.1.2"
+description = "ASCII transliterations of Unicode text"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[[package]]
+name = "urllib3"
+version = "1.26.2"
+description = "HTTP library with thread-safe connection pooling, file post, and more."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
+
+[package.extras]
+brotli = ["brotlipy (>=0.6.0)"]
+secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "certifi", "ipaddress"]
+socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
+
+[[package]]
+name = "wagtail"
+version = "2.11.3"
+description = "A Django content management system."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+anyascii = ">=0.1.5"
+beautifulsoup4 = ">=4.8,<4.9"
+Django = ">=2.2,<3.2"
+django-filter = ">=2.2,<3.0"
+django-modelcluster = ">=5.1,<6.0"
+django-taggit = ">=1.0,<2.0"
+django-treebeard = ">=4.2.0,<5.0"
+djangorestframework = ">=3.11.1,<4.0"
+draftjs-exporter = ">=2.1.5,<3.0"
+html5lib = ">=0.999,<2"
+l18n = ">=2018.5"
+Pillow = ">=4.0.0,<9.0.0"
+requests = ">=2.11.1,<3.0"
+tablib = {version = ">=0.14.0", extras = ["xls", "xlsx"]}
+Unidecode = ">=0.04.14,<2.0"
+Willow = ">=1.4,<1.5"
+xlsxwriter = ">=1.2.8,<2.0"
+
+[package.extras]
+docs = ["pyenchant (>=3.1.1,<4)", "sphinxcontrib-spelling (>=5.4.0,<6)", "Sphinx (>=1.5.2)", "sphinx-autobuild (>=0.6.0)", "sphinx-rtd-theme (>=0.1.9)"]
+testing = ["python-dateutil (>=2.2)", "pytz (>=2014.7)", "elasticsearch (>=1.0.0,<3.0)", "Jinja2 (>=2.8,<3.0)", "boto3 (>=1.4,<1.5)", "freezegun (>=0.3.8)", "openpyxl (>=2.6.4)", "coverage (>=3.7.0)", "flake8 (>=3.6.0)", "isort (==5.6.4)", "flake8-blind-except (==0.1.1)", "flake8-print (==2.0.2)", "doc8 (==0.8.1)", "jinjalint (>=0.5)", "docutils (==0.15)", "django-taggit (>=1.3.0,<2.0)"]
+
+[[package]]
+name = "wagtail-bakery"
+version = "0.5.0"
+description = "A set of helpers for baking your Django Wagtail site out as flat files."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+django-bakery = ">=0.12.7,<0.13.0"
+wagtail = ">=2.10"
+
+[package.extras]
+test = ["factory-boy (<3)", "flake8", "isort", "pytest", "pytest-cov", "pytest-django"]
+
+[[package]]
+name = "wagtailnetlify"
+version = "0.7"
+description = "Deploy Wagtail sites to Netlify"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+wagtail = ">=1.6"
+wagtail-bakery = ">=0.3.0"
+
+[[package]]
+name = "webencodings"
+version = "0.5.1"
+description = "Character encoding aliases for legacy web content"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "willow"
+version = "1.4"
+description = "A Python image library that sits on top of Pillow, Wand and OpenCV"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "xlrd"
+version = "2.0.1"
+description = "Library for developers to extract data from Microsoft Excel (tm) .xls spreadsheet files"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
+
+[package.extras]
+build = ["wheel", "twine"]
+docs = ["sphinx"]
+test = ["pytest", "pytest-cov"]
+
+[[package]]
+name = "xlsxwriter"
+version = "1.3.7"
+description = "A Python module for creating Excel XLSX files."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "xlwt"
+version = "1.3.0"
+description = "Library to create spreadsheet files compatible with MS Excel 97/2000/XP/2003 XLS files, on any platform, with Python 2.6, 2.7, 3.3+"
+category = "main"
+optional = false
+python-versions = "*"
+
+[metadata]
+lock-version = "1.1"
+python-versions = "3.9.0"
+content-hash = "1d9931ce75556bff59c543568759c300db5d74aafcb18a8bf6f55e07e5da02bc"
+
+[metadata.files]
+anyascii = [
+    {file = "anyascii-0.1.7-py3-none-any.whl", hash = "sha256:f100a4f716867bcf0a3b05d8a183dd122fc1d55304a10127bee256e602452d61"},
+    {file = "anyascii-0.1.7.tar.gz", hash = "sha256:d0eb076933a9eaf1138cb365a5e2e35360ffbbf3200bf33419aaa17d5f8599f5"},
+]
+appdirs = [
+    {file = "appdirs-1.4.4-py2.py3-none-any.whl", hash = "sha256:a841dacd6b99318a741b166adb07e19ee71a274450e68237b4650ca1055ab128"},
+    {file = "appdirs-1.4.4.tar.gz", hash = "sha256:7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41"},
+]
+asgiref = [
+    {file = "asgiref-3.3.1-py3-none-any.whl", hash = "sha256:5ee950735509d04eb673bd7f7120f8fa1c9e2df495394992c73234d526907e17"},
+    {file = "asgiref-3.3.1.tar.gz", hash = "sha256:7162a3cb30ab0609f1a4c95938fd73e8604f63bdba516a7f7d64b83ff09478f0"},
+]
+beautifulsoup4 = [
+    {file = "beautifulsoup4-4.8.2-py2-none-any.whl", hash = "sha256:e1505eeed31b0f4ce2dbb3bc8eb256c04cc2b3b72af7d551a4ab6efd5cbe5dae"},
+    {file = "beautifulsoup4-4.8.2-py3-none-any.whl", hash = "sha256:9fbb4d6e48ecd30bcacc5b63b94088192dcda178513b2ae3c394229f8911b887"},
+    {file = "beautifulsoup4-4.8.2.tar.gz", hash = "sha256:05fd825eb01c290877657a56df4c6e4c311b3965bda790c613a3d6fb01a5462a"},
+]
+boto3 = [
+    {file = "boto3-1.16.43-py2.py3-none-any.whl", hash = "sha256:0bb2c3159b9f5e0df50430bf06a155bd7f27f480825b6374dde807d42360a668"},
+    {file = "boto3-1.16.43.tar.gz", hash = "sha256:a49b3ab4bfa2f6394ba60165cfc468410797dd410f32eed47e22f61451ee986e"},
+]
+botocore = [
+    {file = "botocore-1.19.43-py2.py3-none-any.whl", hash = "sha256:795a67338cadb0c3a45014a6c81659da6af623a4e973812f87a6f9d9fb7712e9"},
+    {file = "botocore-1.19.43.tar.gz", hash = "sha256:7398c900dbd4e3d61647269215396ea3e8082f494f3e7b65d9b6aca049c1d463"},
+]
+certifi = [
+    {file = "certifi-2020.12.5-py2.py3-none-any.whl", hash = "sha256:719a74fb9e33b9bd44cc7f3a8d94bc35e4049deebe19ba7d8e108280cfd59830"},
+    {file = "certifi-2020.12.5.tar.gz", hash = "sha256:1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"},
+]
+chardet = [
+    {file = "chardet-4.0.0-py2.py3-none-any.whl", hash = "sha256:f864054d66fd9118f2e67044ac8981a54775ec5b67aed0441892edb553d21da5"},
+    {file = "chardet-4.0.0.tar.gz", hash = "sha256:0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"},
+]
+dj-database-url = [
+    {file = "dj-database-url-0.5.0.tar.gz", hash = "sha256:4aeaeb1f573c74835b0686a2b46b85990571159ffc21aa57ecd4d1e1cb334163"},
+    {file = "dj_database_url-0.5.0-py2.py3-none-any.whl", hash = "sha256:851785365761ebe4994a921b433062309eb882fedd318e1b0fcecc607ed02da9"},
+]
+django = [
+    {file = "Django-3.1.4-py3-none-any.whl", hash = "sha256:5c866205f15e7a7123f1eec6ab939d22d5bde1416635cab259684af66d8e48a2"},
+    {file = "Django-3.1.4.tar.gz", hash = "sha256:edb10b5c45e7e9c0fb1dc00b76ec7449aca258a39ffd613dbd078c51d19c9f03"},
+]
+django-bakery = [
+    {file = "django-bakery-0.12.7.tar.gz", hash = "sha256:48156dbd9ddb762bef4352350a5f43744740529148fd70598120d8d2ae5e273c"},
+    {file = "django_bakery-0.12.7-py2.py3-none-any.whl", hash = "sha256:9eb91d1a65ecc0ba08c58ef091130b7daa012e4a1e30b4c3960ea36d9477fcef"},
+]
+django-filter = [
+    {file = "django-filter-2.4.0.tar.gz", hash = "sha256:84e9d5bb93f237e451db814ed422a3a625751cbc9968b484ecc74964a8696b06"},
+    {file = "django_filter-2.4.0-py3-none-any.whl", hash = "sha256:e00d32cebdb3d54273c48f4f878f898dced8d5dfaad009438fe61ebdf535ace1"},
+]
+django-modelcluster = [
+    {file = "django-modelcluster-5.1.tar.gz", hash = "sha256:783d177f7bf5c8f30fe365c347b9a032920de371fe1c63d955d7b283684d4c08"},
+    {file = "django_modelcluster-5.1-py2.py3-none-any.whl", hash = "sha256:d4a0f90e85ae1a193f417e149b6b01d0b2a867dcf97f7fae1d34a4363a9d7baa"},
+]
+django-taggit = [
+    {file = "django-taggit-1.3.0.tar.gz", hash = "sha256:4a833bf71f4c2deddd9745924eee53be1c075d7f0020a06f12e29fa3d752732d"},
+    {file = "django_taggit-1.3.0-py3-none-any.whl", hash = "sha256:609b0223d8a652f3fae088b7fd29f294fdadaca2d7931d45c27d6c59b02fdf31"},
+]
+django-treebeard = [
+    {file = "django-treebeard-4.3.1.tar.gz", hash = "sha256:83aebc34a9f06de7daaec330d858d1c47887e81be3da77e3541fe7368196dd8a"},
+]
+djangorestframework = [
+    {file = "djangorestframework-3.12.2-py3-none-any.whl", hash = "sha256:0209bafcb7b5010fdfec784034f059d512256424de2a0f084cb82b096d6dd6a7"},
+]
+draftjs-exporter = [
+    {file = "draftjs_exporter-2.1.7-py3-none-any.whl", hash = "sha256:d415a9964690a2cddb66a31ef32dd46c277e9b80434b94e39e3043188ed83e33"},
+    {file = "draftjs_exporter-2.1.7.tar.gz", hash = "sha256:5839cbc29d7bce2fb99837a404ca40c3a07313f2a20e2700de7ad6aa9a9a18fb"},
+]
+et-xmlfile = [
+    {file = "et_xmlfile-1.0.1.tar.gz", hash = "sha256:614d9722d572f6246302c4491846d2c393c199cfa4edc9af593437691683335b"},
+]
+fs = [
+    {file = "fs-2.4.11-py2.py3-none-any.whl", hash = "sha256:cd6b178f373a0370feac8612fd3c142aa6a5cadd3d471b525b08db4d3b511c9c"},
+    {file = "fs-2.4.11.tar.gz", hash = "sha256:cc99d476b500f993df8ef697b96dc70928ca2946a455c396a566efe021126767"},
+]
+html5lib = [
+    {file = "html5lib-1.1-py2.py3-none-any.whl", hash = "sha256:0d78f8fde1c230e99fe37986a60526d7049ed4bf8a9fadbad5f00e22e58e041d"},
+    {file = "html5lib-1.1.tar.gz", hash = "sha256:b2e5b40261e20f354d198eae92afc10d750afb487ed5e50f9c4eaf07c184146f"},
+]
+idna = [
+    {file = "idna-2.10-py2.py3-none-any.whl", hash = "sha256:b97d804b1e9b523befed77c48dacec60e6dcb0b5391d57af6a65a312a90648c0"},
+    {file = "idna-2.10.tar.gz", hash = "sha256:b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"},
+]
+jdcal = [
+    {file = "jdcal-1.4.1-py2.py3-none-any.whl", hash = "sha256:1abf1305fce18b4e8aa248cf8fe0c56ce2032392bc64bbd61b5dff2a19ec8bba"},
+    {file = "jdcal-1.4.1.tar.gz", hash = "sha256:472872e096eb8df219c23f2689fc336668bdb43d194094b5cc1707e1640acfc8"},
+]
+jmespath = [
+    {file = "jmespath-0.10.0-py2.py3-none-any.whl", hash = "sha256:cdf6525904cc597730141d61b36f2e4b8ecc257c420fa2f4549bac2c2d0cb72f"},
+    {file = "jmespath-0.10.0.tar.gz", hash = "sha256:b85d0567b8666149a93172712e68920734333c0ce7e89b78b3e987f71e5ed4f9"},
+]
+l18n = [
+    {file = "l18n-2020.6.1.tar.gz", hash = "sha256:ea7a65b2f0935b14601a3295f2c5e5e8b54126dd1e6a7fef4e44d2b8dd5b695a"},
+]
+openpyxl = [
+    {file = "openpyxl-3.0.5-py2.py3-none-any.whl", hash = "sha256:f7d666b569f729257082cf7ddc56262431878f602dcc2bc3980775c59439cdab"},
+    {file = "openpyxl-3.0.5.tar.gz", hash = "sha256:18e11f9a650128a12580a58e3daba14e00a11d9e907c554a17ea016bf1a2c71b"},
+]
+pillow = [
+    {file = "Pillow-8.0.1-cp36-cp36m-macosx_10_10_x86_64.whl", hash = "sha256:b63d4ff734263ae4ce6593798bcfee6dbfb00523c82753a3a03cbc05555a9cc3"},
+    {file = "Pillow-8.0.1-cp36-cp36m-manylinux1_i686.whl", hash = "sha256:5f9403af9c790cc18411ea398a6950ee2def2a830ad0cfe6dc9122e6d528b302"},
+    {file = "Pillow-8.0.1-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:6b4a8fd632b4ebee28282a9fef4c341835a1aa8671e2770b6f89adc8e8c2703c"},
+    {file = "Pillow-8.0.1-cp36-cp36m-manylinux2014_aarch64.whl", hash = "sha256:cc3ea6b23954da84dbee8025c616040d9aa5eaf34ea6895a0a762ee9d3e12e11"},
+    {file = "Pillow-8.0.1-cp36-cp36m-win32.whl", hash = "sha256:d8a96747df78cda35980905bf26e72960cba6d355ace4780d4bdde3b217cdf1e"},
+    {file = "Pillow-8.0.1-cp36-cp36m-win_amd64.whl", hash = "sha256:7ba0ba61252ab23052e642abdb17fd08fdcfdbbf3b74c969a30c58ac1ade7cd3"},
+    {file = "Pillow-8.0.1-cp37-cp37m-macosx_10_10_x86_64.whl", hash = "sha256:795e91a60f291e75de2e20e6bdd67770f793c8605b553cb6e4387ce0cb302e09"},
+    {file = "Pillow-8.0.1-cp37-cp37m-manylinux1_i686.whl", hash = "sha256:0a2e8d03787ec7ad71dc18aec9367c946ef8ef50e1e78c71f743bc3a770f9fae"},
+    {file = "Pillow-8.0.1-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:006de60d7580d81f4a1a7e9f0173dc90a932e3905cc4d47ea909bc946302311a"},
+    {file = "Pillow-8.0.1-cp37-cp37m-manylinux2014_aarch64.whl", hash = "sha256:bd7bf289e05470b1bc74889d1466d9ad4a56d201f24397557b6f65c24a6844b8"},
+    {file = "Pillow-8.0.1-cp37-cp37m-win32.whl", hash = "sha256:95edb1ed513e68bddc2aee3de66ceaf743590bf16c023fb9977adc4be15bd3f0"},
+    {file = "Pillow-8.0.1-cp37-cp37m-win_amd64.whl", hash = "sha256:e38d58d9138ef972fceb7aeec4be02e3f01d383723965bfcef14d174c8ccd039"},
+    {file = "Pillow-8.0.1-cp38-cp38-macosx_10_10_x86_64.whl", hash = "sha256:d3d07c86d4efa1facdf32aa878bd508c0dc4f87c48125cc16b937baa4e5b5e11"},
+    {file = "Pillow-8.0.1-cp38-cp38-manylinux1_i686.whl", hash = "sha256:fbd922f702582cb0d71ef94442bfca57624352622d75e3be7a1e7e9360b07e72"},
+    {file = "Pillow-8.0.1-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:92c882b70a40c79de9f5294dc99390671e07fc0b0113d472cbea3fde15db1792"},
+    {file = "Pillow-8.0.1-cp38-cp38-manylinux2014_aarch64.whl", hash = "sha256:7c9401e68730d6c4245b8e361d3d13e1035cbc94db86b49dc7da8bec235d0015"},
+    {file = "Pillow-8.0.1-cp38-cp38-win32.whl", hash = "sha256:6c1aca8231625115104a06e4389fcd9ec88f0c9befbabd80dc206c35561be271"},
+    {file = "Pillow-8.0.1-cp38-cp38-win_amd64.whl", hash = "sha256:cc9ec588c6ef3a1325fa032ec14d97b7309db493782ea8c304666fb10c3bd9a7"},
+    {file = "Pillow-8.0.1-cp39-cp39-macosx_10_10_x86_64.whl", hash = "sha256:eb472586374dc66b31e36e14720747595c2b265ae962987261f044e5cce644b5"},
+    {file = "Pillow-8.0.1-cp39-cp39-manylinux1_i686.whl", hash = "sha256:0eeeae397e5a79dc088d8297a4c2c6f901f8fb30db47795113a4a605d0f1e5ce"},
+    {file = "Pillow-8.0.1-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:81f812d8f5e8a09b246515fac141e9d10113229bc33ea073fec11403b016bcf3"},
+    {file = "Pillow-8.0.1-cp39-cp39-manylinux2014_aarch64.whl", hash = "sha256:895d54c0ddc78a478c80f9c438579ac15f3e27bf442c2a9aa74d41d0e4d12544"},
+    {file = "Pillow-8.0.1-cp39-cp39-win32.whl", hash = "sha256:2fb113757a369a6cdb189f8df3226e995acfed0a8919a72416626af1a0a71140"},
+    {file = "Pillow-8.0.1-cp39-cp39-win_amd64.whl", hash = "sha256:59e903ca800c8cfd1ebe482349ec7c35687b95e98cefae213e271c8c7fffa021"},
+    {file = "Pillow-8.0.1-pp36-pypy36_pp73-macosx_10_10_x86_64.whl", hash = "sha256:5abd653a23c35d980b332bc0431d39663b1709d64142e3652890df4c9b6970f6"},
+    {file = "Pillow-8.0.1-pp36-pypy36_pp73-manylinux2010_x86_64.whl", hash = "sha256:4b0ef2470c4979e345e4e0cc1bbac65fda11d0d7b789dbac035e4c6ce3f98adb"},
+    {file = "Pillow-8.0.1-pp37-pypy37_pp73-win32.whl", hash = "sha256:8de332053707c80963b589b22f8e0229f1be1f3ca862a932c1bcd48dafb18dd8"},
+    {file = "Pillow-8.0.1.tar.gz", hash = "sha256:11c5c6e9b02c9dac08af04f093eb5a2f84857df70a7d4a6a6ad461aca803fb9e"},
+]
+python-dateutil = [
+    {file = "python-dateutil-2.8.1.tar.gz", hash = "sha256:73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"},
+    {file = "python_dateutil-2.8.1-py2.py3-none-any.whl", hash = "sha256:75bb3f31ea686f1197762692a9ee6a7550b59fc6ca3a1f4b5d7e32fb98e2da2a"},
+]
+pytz = [
+    {file = "pytz-2020.5-py2.py3-none-any.whl", hash = "sha256:16962c5fb8db4a8f63a26646d8886e9d769b6c511543557bc84e9569fb9a9cb4"},
+    {file = "pytz-2020.5.tar.gz", hash = "sha256:180befebb1927b16f6b57101720075a984c019ac16b1b7575673bea42c6c3da5"},
+]
+requests = [
+    {file = "requests-2.25.1-py2.py3-none-any.whl", hash = "sha256:c210084e36a42ae6b9219e00e48287def368a26d03a048ddad7bfee44f75871e"},
+    {file = "requests-2.25.1.tar.gz", hash = "sha256:27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"},
+]
+s3transfer = [
+    {file = "s3transfer-0.3.3-py2.py3-none-any.whl", hash = "sha256:2482b4259524933a022d59da830f51bd746db62f047d6eb213f2f8855dcb8a13"},
+    {file = "s3transfer-0.3.3.tar.gz", hash = "sha256:921a37e2aefc64145e7b73d50c71bb4f26f46e4c9f414dc648c6245ff92cf7db"},
+]
+six = [
+    {file = "six-1.15.0-py2.py3-none-any.whl", hash = "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"},
+    {file = "six-1.15.0.tar.gz", hash = "sha256:30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"},
+]
+soupsieve = [
+    {file = "soupsieve-2.1-py3-none-any.whl", hash = "sha256:4bb21a6ee4707bf43b61230e80740e71bfe56e55d1f1f50924b087bb2975c851"},
+    {file = "soupsieve-2.1.tar.gz", hash = "sha256:6dc52924dc0bc710a5d16794e6b3480b2c7c08b07729505feab2b2c16661ff6e"},
+]
+sqlparse = [
+    {file = "sqlparse-0.4.1-py3-none-any.whl", hash = "sha256:017cde379adbd6a1f15a61873f43e8274179378e95ef3fede90b5aa64d304ed0"},
+    {file = "sqlparse-0.4.1.tar.gz", hash = "sha256:0f91fd2e829c44362cbcfab3e9ae12e22badaa8a29ad5ff599f9ec109f0454e8"},
+]
+tablib = [
+    {file = "tablib-3.0.0-py3-none-any.whl", hash = "sha256:41aa40981cddd7ec4d1fabeae7c38d271601b306386bd05b5c3bcae13e5aeb20"},
+    {file = "tablib-3.0.0.tar.gz", hash = "sha256:f83cac08454f225a34a305daa20e2110d5e6335135d505f93bc66583a5f9c10d"},
+]
+unidecode = [
+    {file = "Unidecode-1.1.2-py2.py3-none-any.whl", hash = "sha256:4c9d15d2f73eb0d2649a151c566901f80a030da1ccb0a2043352e1dbf647586b"},
+    {file = "Unidecode-1.1.2.tar.gz", hash = "sha256:a039f89014245e0cad8858976293e23501accc9ff5a7bdbc739a14a2b7b85cdc"},
+]
+urllib3 = [
+    {file = "urllib3-1.26.2-py2.py3-none-any.whl", hash = "sha256:d8ff90d979214d7b4f8ce956e80f4028fc6860e4431f731ea4a8c08f23f99473"},
+    {file = "urllib3-1.26.2.tar.gz", hash = "sha256:19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"},
+]
+wagtail = [
+    {file = "wagtail-2.11.3-py3-none-any.whl", hash = "sha256:825c143b8acdadc4b85c7880dbd1cfaa35397c42bdbf7965baaf6b2fdd78f913"},
+    {file = "wagtail-2.11.3.tar.gz", hash = "sha256:2d153a61fc7cdff2ef71392301661b6a35a09e66758490ac346410b548e3368a"},
+]
+wagtail-bakery = [
+    {file = "wagtail-bakery-0.5.0.tar.gz", hash = "sha256:6a8fd0d4b8aaaa40249a54ece058462065fc250b4c9deee743d63be6aa18acee"},
+]
+wagtailnetlify = [
+    {file = "wagtailnetlify-0.7.tar.gz", hash = "sha256:96f57a10179be835fa9ee703c42591d6b9284c8043953a951f1684eb1812c282"},
+]
+webencodings = [
+    {file = "webencodings-0.5.1-py2.py3-none-any.whl", hash = "sha256:a0af1213f3c2226497a97e2b3aa01a7e4bee4f403f95be16fc9acd2947514a78"},
+    {file = "webencodings-0.5.1.tar.gz", hash = "sha256:b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"},
+]
+willow = [
+    {file = "Willow-1.4-py2.py3-none-any.whl", hash = "sha256:698f755fc6bfb8984ac8550f470a0cb630ec1e628287475315d4d1e7595d7337"},
+    {file = "Willow-1.4.tar.gz", hash = "sha256:cde01e054c510284ac3459d6b531e1653a58e33a735706ac27905a94fe81742c"},
+]
+xlrd = [
+    {file = "xlrd-2.0.1-py2.py3-none-any.whl", hash = "sha256:6a33ee89877bd9abc1158129f6e94be74e2679636b8a205b43b85206c3f0bbdd"},
+    {file = "xlrd-2.0.1.tar.gz", hash = "sha256:f72f148f54442c6b056bf931dbc34f986fd0c3b0b6b5a58d013c9aef274d0c88"},
+]
+xlsxwriter = [
+    {file = "XlsxWriter-1.3.7-py2.py3-none-any.whl", hash = "sha256:b807c2d3e379bf6a925f472955beef3e07495c1bac708640696876e68675b49b"},
+    {file = "XlsxWriter-1.3.7.tar.gz", hash = "sha256:9b1ade2d1ba5d9b40a6d1de1d55ded4394ab8002718092ae80a08532c2add2e6"},
+]
+xlwt = [
+    {file = "xlwt-1.3.0-py2.py3-none-any.whl", hash = "sha256:a082260524678ba48a297d922cc385f58278b8aa68741596a87de01a9c628b2e"},
+    {file = "xlwt-1.3.0.tar.gz", hash = "sha256:c59912717a9b28f1a3c2a98fd60741014b06b043936dcecbc113eaaada156c88"},
+]
