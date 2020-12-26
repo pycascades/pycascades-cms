@@ -1,2 +1,4 @@
 *.sqlite3
 *.py[co]
+
+_build/

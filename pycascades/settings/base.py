@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'wagtail.admin',
     'wagtail.core',
 
+    'bakery',
+    'wagtailbakery',
+
     'modelcluster',
     'taggit',
 
@@ -160,3 +163,8 @@ WAGTAIL_SITE_NAME = "pycascades"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+BAKERY_VIEWS = (
+	'wagtailbakery.views.AllPublishedPagesView',
+)
+BUILD_DIR = f"{os.getcwd()}/_build"
