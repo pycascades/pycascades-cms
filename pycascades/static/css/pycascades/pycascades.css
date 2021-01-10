@@ -2,16 +2,16 @@
 
 @font-face {
     font-family: '05Brevia-Medium';
-    src: url('../../fonts/05Brevia-Medium-webfont.woff2') format('woff2'),
-         url('../../fonts/05Brevia-Medium-webfont.woff') format('woff');
+    src: url('../fonts/05Brevia-Medium-webfont.woff2') format('woff2'),
+         url('../fonts/05Brevia-Medium-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: '09Brevia-Bold';
-    src: url('../../fonts/09Brevia-Bold-webfont.woff2') format('woff2'),
-         url('../../fonts/09Brevia-Bold-webfont.woff') format('woff');
+    src: url('../fonts/09Brevia-Bold-webfont.woff2') format('woff2'),
+         url('../fonts/09Brevia-Bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
