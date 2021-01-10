@@ -2,7 +2,9 @@
 {% load wagtailcore_tags %}
 
 {% block body_class %}content{% endblock %}
-{% block main %}
-<div class="container">{% block main_body %}{{ this.body|richtext }}
+
+{% block content %}
+<div class="container">
+    {{ page.content|richtext }}
+</div>
 {% endblock %}
-</div>{% endblock %}
