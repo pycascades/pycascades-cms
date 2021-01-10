@@ -6,7 +6,10 @@ from wagtail.admin.edit_handlers import FieldPanel
 
 
 class NewsList(Page):
-    pass
+
+    @property
+    def hide_children(self):
+        return True
 
 
 class NewsPost(Page):
