@@ -5,3 +5,6 @@
 
 echo "=> Performing database migrations..."
 python manage.py migrate
+
+echo "=> Building Static Files..."
+python manage.py assets build
