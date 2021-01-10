@@ -28,6 +28,8 @@ ASSETS_MODULES = [
 
 INSTALLED_APPS = [
     "django_assets",
+    'storages',
+
 
     'home',
     'search',
