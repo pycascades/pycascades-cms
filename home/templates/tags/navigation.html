@@ -1,7 +1,16 @@
 <nav>
   <ul>
-    <li class="home"><a href="/">Home</a>
+    <li class="home">
+      <a href="{{ home.url }}">{{ home.title }}</a>
     </li>
+
+    {% for page in menu_pages %}
+    </li>
+      <li class="{{ page.slug }}"><a href="{{ page.url }}">{{ page.title }}</a>
+    </li>
+    {% endfor %}
+
+    {% comment %}
     <li class="about"><a href="">About</a>
       <ul>
         <li class="about"><a href="/the-conference">The Conference</a>
@@ -31,8 +40,6 @@
       </ul>
     </li>
     <li class="attend"><a href="https://pretix.eu/pycascades/remote-2021/" target="_blank">Tickets</a>
-    </li>
-    <li class="news"><a href="/news">News</a>
-    </li>
+    {% endcomment %}
   </ul>
 </nav>

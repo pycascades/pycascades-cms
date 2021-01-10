@@ -1,0 +1,41 @@
+{% extends "base.jade" %}{% block page_title %}News &mdash; {{super()}}{% endblock %}
+{% block meta_description %}PyCascades Conference News{% endblock %}
+{% block body_class %}news posting-list{% endblock %}
+{% block main %}
+<div class="container">
+  <h1>PyCascades News</h1>
+  <div class="posting-list">{% for posting in this.children %}
+
+    <div class="posting">
+      <h2><a href="{{ posting.url_path|url }}">{{ posting.title }}</a>
+      </h2>
+      <div class="meta">{% if posting.author %}
+Posted by {{ posting.author }}
+{% if posting.date %}
+on
+{% endif %}
+{% endif %}
+{% if posting.date %}
+{{ posting.date|dateformat('MMMM d, ''yyyy') }}
+{% endif %}
+      </div>
+      <div class="body">
+        <div class="p">{% if posting.meta_description %}
+{{ posting.meta_description }}
+{% else %}
+{{ posting.body.html|truncate() }}
+{% endif %}
+<a href="{{ posting.url_path|url }}">➡
+</a>
+        </div>
+      </div>
+{% if not loop.last %}
+
+      <hr/>{% endif %}
+
+    </div>{% else %}
+We don't have any news to share just yet.
+{% endfor %}
+
+  </div>
+</div>{% endblock %}

@@ -27,6 +27,15 @@ class HomePage(Page):
     ]
 
 
+class SimplePage(Page):
+    content = RichTextField(blank=True)
+
+    content_panels = Page.content_panels + [
+        FieldPanel('content'),
+    ]
+
+
+
 @register_snippet
 class CornerBanner(models.Model):
     text = models.CharField(max_length=255)

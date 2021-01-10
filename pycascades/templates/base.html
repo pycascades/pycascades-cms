@@ -1,5 +1,6 @@
 {% load assets %}
 {% load wagtailcore_tags corner_banner_tags %}
+{% load menu_tags %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -42,9 +43,10 @@
     <div id="page" ng-controller="Ctrl">
         <header headroom ng-class="{scrolling:isScrolling,up:waypoints.info.up,down:waypoints.info.down}">
             <div class="container">
-            <div class="logo"><a href="/" ff-bg="/static/images/header-logo.png" class="bg-contain bg-ir">{{ self.title }}</a>
+                <div class="logo"><a href="/" ff-bg="/static/images/header-logo.png" class="bg-contain bg-ir">{{ self.title }}</a>
+                </div>
             </div>
-            </div>{% include "includes/nav.html" %}
+            {% render_navigation %}
         </header>
 
         <div id="main">{% block content %}{% endblock %}</div>
@@ -74,7 +76,7 @@
         <a id="menu-trigger" ff-bg="/static/images/menu.svg" ng-click="isMenuVisible=!isMenuVisible" class="bg-contain"></a>
         <div id="menu" ng-show="isMenuVisible" ng-click="isMenuVisible=false" class="ng-cloak">
             <a ff-bg="/static/images/close.svg" ng-click="isMenuVisible=false" class="close bg-contain"></a>
-            {% include "includes/nav.html" %}
+            {% render_navigation %}
         </div>
 
         {# Global javascript #}
