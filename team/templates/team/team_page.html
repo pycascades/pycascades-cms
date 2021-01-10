@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags team_tags %}
+
+{% block page_title %}{{ page.title }} &mdash; {{ block.super }}{% endblock %}
+
+{% block body_class %}about organizers{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1>{{ page.title }}</h1>
+  <p>{{ page.description|richtext }}
+
+  </p>
+  <div class="item-list">
+    {% organizers "chair" as chairs %}
+    {% for organizer in chairs %}
+      {% include "team/organizer_partial.html" %}
+    {% endfor %}
+  </div>
+
+  <div class="item-list">
+  {% organizers "organizer" as team_organizers %}
+  {% for organizer in team_organizers %}
+    {% include "team/organizer_partial.html" %}
+  {% endfor %}
+  </div>
+
+  <div class="item-list">
+  {% organizers "emeritus" as team_emeritus %}
+  {% for organizer in team_emeritus %}
+    {% include "team/organizer_partial.html" %}
+  {% endfor %}
+  </div>
+</div>
+{% endblock %}

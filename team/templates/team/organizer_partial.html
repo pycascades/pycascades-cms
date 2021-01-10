@@ -1,0 +1,29 @@
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+<div class="item">
+  {% if organizer.headshot %}
+
+    {% image organizer.headshot width-200 as tmp_small %}
+    {% image organizer.headshot width-400 as tmp_large %}
+
+    <div ff-bg="{{ tmp_small.url }}" ff-bg-2x="{{ tmp_large.url }}" class="headshot image bg-contain"></div>
+  {% else %}
+    <div ff-bg="/static/images/headshot.jpg" ff-bg-2x="/static/images/headshot.jpg" class="headshot image bg-contain"></div>
+  {% endif %}
+
+  <h2>{{ organizer.name }}</h2>
+  <div class="title">{{ organizer.title }}</div>
+  <div class="contact">
+    {% if organizer.email %}
+      <a href="mailto:{{ organizer.email }}"><i class="fa fa-2x fa-at"></i></a>
+    {% endif %}
+    {% if organizer.twitter %}
+      <a href="https://www.twitter.com/{{ organizer.twitter }}" target="_blank"><i class="fa fa-2x fa-twitter"></i></a>
+    {% endif %}
+  </div>
+
+  <div class="biography">
+    {{ organizer.bio|richtext }}
+  </div>
+</div>

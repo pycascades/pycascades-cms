@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'search',
     "news",
     "sponsors",
+    "team",
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
