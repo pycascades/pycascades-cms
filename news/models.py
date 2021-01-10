@@ -1,6 +1,6 @@
 from django.db import models
 
-from wagtail.core.models import Page
+from wagtail.core.models import Orderable, Page
 from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel
 
@@ -22,3 +22,6 @@ class NewsPost(Page):
         FieldPanel("teaser"),
         FieldPanel("date"),
     ]
+
+    class Meta:
+        ordering = ["-date"]
