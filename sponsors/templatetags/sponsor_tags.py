@@ -3,6 +3,7 @@ from sponsors.models import Sponsor, SponsorTier
 
 register = template.Library()
 
+
 @register.simple_tag
 def corporate_sponsors():
     return Sponsor.objects.filter(tie__slug=SponsorTier.CORPORATE)
@@ -15,7 +16,9 @@ def non_profit_sponsors():
 
 @register.simple_tag
 def corporate_tiers():
-    return SponsorTier.objects.filter(sponsors__isnull=False, type=SponsorTier.CORPORATE)
+    return SponsorTier.objects.filter(
+        sponsors__isnull=False, type=SponsorTier.CORPORATE
+    )
 
 
 @register.simple_tag

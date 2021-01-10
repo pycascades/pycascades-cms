@@ -10,30 +10,82 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('wagtailimages', '0022_uploadedimage'),
+        ("wagtailimages", "0022_uploadedimage"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='SponsorTier',
+            name="SponsorTier",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255)),
-                ('slug', models.SlugField(blank=True, max_length=255)),
-                ('type', models.CharField(choices=[('corporate', 'Corporate'), ('non-profit', 'Non-Profit / Academic / Startup')], max_length=255)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=255)),
+                ("slug", models.SlugField(blank=True, max_length=255)),
+                (
+                    "type",
+                    models.CharField(
+                        choices=[
+                            ("corporate", "Corporate"),
+                            ("non-profit", "Non-Profit / Academic / Startup"),
+                        ],
+                        max_length=255,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Sponsor',
+            name="Sponsor",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255)),
-                ('website', models.URLField(blank=True)),
-                ('description', wagtail.core.fields.RichTextField(blank=True)),
-                ('sign_date', models.DateField()),
-                ('logo', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailimages.image')),
-                ('logo_dark_background', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailimages.image')),
-                ('tier', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='tier', to='sponsors.sponsortier')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=255)),
+                ("website", models.URLField(blank=True)),
+                ("description", wagtail.core.fields.RichTextField(blank=True)),
+                ("sign_date", models.DateField()),
+                (
+                    "logo",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="+",
+                        to="wagtailimages.image",
+                    ),
+                ),
+                (
+                    "logo_dark_background",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="+",
+                        to="wagtailimages.image",
+                    ),
+                ),
+                (
+                    "tier",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="tier",
+                        to="sponsors.sponsortier",
+                    ),
+                ),
             ],
         ),
     ]

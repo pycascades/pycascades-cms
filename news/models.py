@@ -6,7 +6,6 @@ from wagtail.admin.edit_handlers import FieldPanel
 
 
 class NewsList(Page):
-
     @property
     def hide_children(self):
         return True
@@ -19,7 +18,7 @@ class NewsPost(Page):
     date = models.DateField()
 
     content_panels = Page.content_panels + [
-        FieldPanel('content'),
-        FieldPanel('teaser'),
-        FieldPanel('date'),
+        FieldPanel("content"),
+        FieldPanel("teaser"),
+        FieldPanel("date"),
     ]

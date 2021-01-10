@@ -10,21 +10,31 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('wagtailcore', '0059_apply_collection_ordering'),
+        ("wagtailcore", "0059_apply_collection_ordering"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='NewsPost',
+            name="NewsPost",
             fields=[
-                ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
-                ('content', wagtail.core.fields.RichTextField()),
-                ('teaser', wagtail.core.fields.RichTextField(blank=True)),
-                ('date', models.DateField()),
+                (
+                    "page_ptr",
+                    models.OneToOneField(
+                        auto_created=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        parent_link=True,
+                        primary_key=True,
+                        serialize=False,
+                        to="wagtailcore.page",
+                    ),
+                ),
+                ("content", wagtail.core.fields.RichTextField()),
+                ("teaser", wagtail.core.fields.RichTextField(blank=True)),
+                ("date", models.DateField()),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
-            bases=('wagtailcore.page',),
+            bases=("wagtailcore.page",),
         ),
     ]

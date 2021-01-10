@@ -6,6 +6,7 @@ from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.snippets.models import register_snippet
 
+
 @register_snippet
 class Sponsor(models.Model):
     name = models.CharField(max_length=255)
@@ -14,41 +15,43 @@ class Sponsor(models.Model):
     description = RichTextField(blank=True)
 
     tier = models.ForeignKey(
-        'sponsors.SponsorTier',
+        "sponsors.SponsorTier",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='sponsors'
+        related_name="sponsors",
     )
 
     logo = models.ForeignKey(
-        'wagtailimages.Image',
+        "wagtailimages.Image",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='+'
+        related_name="+",
     )
 
     logo_dark_background = models.ForeignKey(
-        'wagtailimages.Image',
+        "wagtailimages.Image",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='+'
+        related_name="+",
     )
 
     sign_date = models.DateField()
 
     panels = [
-        FieldPanel('name'),
-        SnippetChooserPanel('tier'),
+        FieldPanel("name"),
+        SnippetChooserPanel("tier"),
         FieldPanel("website"),
         FieldPanel("description"),
         FieldPanel("sign_date"),
-        MultiFieldPanel([
-            ImageChooserPanel('logo'),
-            ImageChooserPanel('logo_dark_background'),
-        ]),
+        MultiFieldPanel(
+            [
+                ImageChooserPanel("logo"),
+                ImageChooserPanel("logo_dark_background"),
+            ]
+        ),
     ]
 
     def __str__(self):
@@ -59,22 +62,18 @@ class Sponsor(models.Model):
 class SponsorTier(models.Model):
     prepopulated_fields = {"slug": ("name",)}
 
-
     CORPORATE = "corporate"
     NPO = "non-profit"
 
-    TYPE_CHOICES = (
-        (CORPORATE, "Corporate"),
-        (NPO, "Non-Profit / Academic / Startup")
-    )
+    TYPE_CHOICES = ((CORPORATE, "Corporate"), (NPO, "Non-Profit / Academic / Startup"))
 
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, blank=True)
     type = models.CharField(max_length=255, choices=TYPE_CHOICES)
 
     panels = [
-        FieldPanel('name'),
-        FieldPanel('type'),
+        FieldPanel("name"),
+        FieldPanel("type"),
     ]
 
     def __str__(self):

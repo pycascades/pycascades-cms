@@ -6,13 +6,21 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('team', '0001_initial'),
+        ("team", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='organizer',
-            name='section',
-            field=models.CharField(choices=[('chair', 'chair'), ('organizer', 'organizer'), ('emeritus', 'emeritus')], default='organizer', max_length=50),
+            model_name="organizer",
+            name="section",
+            field=models.CharField(
+                choices=[
+                    ("chair", "chair"),
+                    ("organizer", "organizer"),
+                    ("emeritus", "emeritus"),
+                ],
+                default="organizer",
+                max_length=50,
+            ),
         ),
     ]

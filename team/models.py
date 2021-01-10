@@ -11,10 +11,7 @@ from wagtail.snippets.models import register_snippet
 class TeamPage(Page):
     description = RichTextField()
 
-    content_panels = Page.content_panels + [
-        FieldPanel("description")
-    ]
-
+    content_panels = Page.content_panels + [FieldPanel("description")]
 
 
 @register_snippet
@@ -32,28 +29,32 @@ class Organizer(models.Model):
     name = models.CharField(max_length=255)
     title = models.CharField(max_length=255, blank=True)
     bio = RichTextField(blank=True)
-    section = models.CharField(max_length=50, choices=SECTIONS, default=ORGANIZER_SECTION)
+    section = models.CharField(
+        max_length=50, choices=SECTIONS, default=ORGANIZER_SECTION
+    )
 
     email = EmailField(blank=True)
     twitter = models.CharField(max_length=255, blank=True)
 
     headshot = models.ForeignKey(
-        'wagtailimages.Image',
+        "wagtailimages.Image",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='+'
+        related_name="+",
     )
 
     panels = [
-        FieldPanel('name'),
-        FieldPanel('title'),
-        FieldPanel('bio'),
-        MultiFieldPanel([
-            FieldPanel('email'),
-            FieldPanel('twitter'),
-        ]),
-        ImageChooserPanel('headshot'),
+        FieldPanel("name"),
+        FieldPanel("title"),
+        FieldPanel("bio"),
+        MultiFieldPanel(
+            [
+                FieldPanel("email"),
+                FieldPanel("twitter"),
+            ]
+        ),
+        ImageChooserPanel("headshot"),
     ]
 
     def __str__(self):

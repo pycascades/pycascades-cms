@@ -10,20 +10,20 @@ from wagtail.snippets.models import register_snippet
 
 class HomePage(Page):
     cover_logo = models.ForeignKey(
-        'wagtailimages.Image',
+        "wagtailimages.Image",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='+'
+        related_name="+",
     )
 
     intro_title = RichTextField(blank=True)
     intro_content = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
-        ImageChooserPanel('cover_logo'),
-        FieldPanel('intro_title'),
-        FieldPanel('intro_content'),
+        ImageChooserPanel("cover_logo"),
+        FieldPanel("intro_title"),
+        FieldPanel("intro_content"),
     ]
 
 
@@ -31,9 +31,8 @@ class SimplePage(Page):
     content = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
-        FieldPanel('content'),
+        FieldPanel("content"),
     ]
-
 
 
 @register_snippet
@@ -43,9 +42,9 @@ class CornerBanner(models.Model):
     show_banner = models.BooleanField(default=True)
 
     panels = [
-        FieldPanel('url'),
-        FieldPanel('text'),
-        FieldPanel('show_banner'),
+        FieldPanel("url"),
+        FieldPanel("text"),
+        FieldPanel("show_banner"),
     ]
 
     def __str__(self):

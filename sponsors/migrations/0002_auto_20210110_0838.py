@@ -19,11 +19,9 @@ def create_sponsor_tiers(apps, schema_editor):
         SponsorTier.objects.get_or_create(slug=key, name=name, type=type)
 
 
-
-
 class Migration(migrations.Migration):
     dependencies = [
-        ('sponsors', '0001_initial'),
+        ("sponsors", "0001_initial"),
     ]
 
     operations = [
