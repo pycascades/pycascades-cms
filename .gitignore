@@ -1,4 +1,8 @@
 *.sqlite3
 *.py[co]
+*.jade.html
+
+static/.webassets-cache
 
 _build/
+.vscode/

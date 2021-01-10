@@ -10,8 +10,3 @@ SECRET_KEY = os.getenv("SECRET_KEY", "")
 ALLOWED_HOSTS = ["pycascades-cms.herokuapp.com"]
 
 django_heroku.settings(locals())
-
-try:
-    from .local import *
-except ImportError:
-    pass
