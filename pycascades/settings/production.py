@@ -1,8 +1,18 @@
 import os
+import sentry_sdk
 import django_heroku
+
+from sentry_sdk.integrations.django import DjangoIntegration
 
 from pycascades.settings.dev import SECRET_KEY
 from .base import *
+
+sentry_sdk.init(
+    dsn=os.getenv("SENTRY_DSN"),
+    integrations=[DjangoIntegration()],
+    traces_sample_rate=1.0,
+    send_default_pii=True
+)
 
 DEBUG = False
 
