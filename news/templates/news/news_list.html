@@ -12,7 +12,7 @@ News &mdash; {{ block.super }}
 <div class="container">
   <h1>PyCascades News</h1>
   <div class="posting-list">
-    {% for posting in page.get_children.specific %}
+    {% for posting in page.get_live_posts %}
 
     <div class="posting">
       <h2>
