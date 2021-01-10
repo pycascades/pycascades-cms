@@ -5,6 +5,10 @@ from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel
 
 
+class NewsList(Page):
+    pass
+
+
 class NewsPost(Page):
     content = RichTextField()
     teaser = RichTextField(blank=True)

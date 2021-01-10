@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block page_title %}{{ page.title }}{% endblock %}
+
+{% block meta_description %}{{ page.teaser }}{% endblock %}
+
+{% block body_class %}news posting-detail{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="posting">
+      <h1><a href="{{ page.url }}">{{ page.title }}</a>
+      </h1>
+      <div class="meta">
+        Posted by PyCascades Team
+        {% if page.date %} on {{ page.date }} {% endif %}
+      </div>
+      <div class="body">{{ page.content|richtext }}
+
+      </div>
+    </div>
+    <p class="more"><a href="{{ page.get_parent.url }}">More news</a>
+    </p>
+  </div>
+{% endblock %}
