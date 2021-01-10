@@ -1,0 +1,17 @@
+{% load wagtailcore_tags sponsor_tags %}
+{% load wagtailimages_tags %}
+
+<div id="sponsors">
+  <div class="sponsor-logos">
+
+{# Corporate Tiers #}
+{% corporate_tiers as tiers %}
+{% for tier in tiers %}
+  {% include "sponsors/sponsor_tier.html" with tiers=tiers %}
+{% endfor %}
+
+{# NPO Tiers #}
+{% npo_tiers as tiers %}
+{% for tier in tiers %}
+  {% include "sponsors/sponsor_tier.html" with tiers=tiers %}
+{% endfor %}

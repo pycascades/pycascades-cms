@@ -1,0 +1,19 @@
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% if tier.sponsors.count %}
+    <div class="heading">
+      <h3>{{ tier.name }}</h3>
+    </div>
+    <div class="item-list">
+      {% for sponsor in tier.sponsors.all %}
+      <div class="item {{sponsor.tier.slug}}">
+        <div class="logo">
+          {% image sponsor.logo width-600 as tmp_photo %}
+          <a href="{{sponsor.website}}" target="_blank" ff-bg="{{ tmp_photo.url }}" class="bg-contain"></a>
+        </div>
+        {{ sponsor.description|richtext }}
+      </div>
+      {% endfor %}
+    </div>
+{% endif %}
