@@ -17,7 +17,7 @@ register('pycascades.css', Bundle(
     "css/pycascades/pycascades.sponsors.css",
     "css/pycascades/pycascades.talks.css",
     filters = 'cssmin',
-    output = "css/pycascades.%(version)s.css",
+    output = "min/css/pycascades.%(version)s.css",
 ))
 
 register('pycascades.js', Bundle(
@@ -31,5 +31,5 @@ register('pycascades.js', Bundle(
     "js/misc/ff.imghelpers.js",
     "js/pycascades/pycascades.js",
     filters='jsmin',
-    output="js/pycascades.%(version)s.js",
+    output="min/js/pycascades.%(version)s.js",
 ))

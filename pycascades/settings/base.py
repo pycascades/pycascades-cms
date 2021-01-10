@@ -31,6 +31,7 @@ INSTALLED_APPS = [
 
     'home',
     'search',
+    #"news",
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -85,6 +86,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'pycascades.context_processors.exposed_settings',
             ],
         },
     },
@@ -174,3 +176,9 @@ BAKERY_VIEWS = (
 	'wagtailbakery.views.AllPublishedPagesView',
 )
 BUILD_DIR = f"{os.getcwd()}/_build"
+
+
+TWITTER_URL = "https://twitter.com/pycascades"
+INSTAGRAM_URL = "https://instagram.com/pycascades"
+SLACK_URL = "https://join.slack.com/t/pycascades/shared_invite/enQtMjkzMzA3MTAwNzM2LTY2ZjQxYWM0MzNiZmM4NzNkMzQ2ODM3OGJmZDU4NWJhMjRiZWM1ZTMyMmYyMDAyMjhiZTQwNzRiNmU3NGQ3Y2U"
+GOOGLE_ANALYTICS_ID = "UA-120134614-1"

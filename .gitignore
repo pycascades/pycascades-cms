@@ -2,7 +2,9 @@
 *.py[co]
 *.jade.html
 
+
 static/.webassets-cache
+media/
 
 _build/
 .vscode/

@@ -1,5 +1,5 @@
-{% load static wagtailuserbar %}
 {% load assets %}
+{% load wagtailcore_tags corner_banner_tags %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -30,7 +30,7 @@
 
         {# Global stylesheets #}
         {% assets 'pycascades.css' %}
-        <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}">
+            <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}">
         {% endassets %}
 
         {% block extra_css %}
@@ -39,22 +39,28 @@
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
-        {% wagtailuserbar %}
+    <div id="page" ng-controller="Ctrl">
+        <header headroom ng-class="{scrolling:isScrolling,up:waypoints.info.up,down:waypoints.info.down}">
+            <div class="container">
+            <div class="logo"><a href="/" ff-bg="/static/images/header-logo.png" class="bg-contain bg-ir">{{ self.title }}</a>
+            </div>
+            </div>{% include "includes/nav.html" %}
+        </header>
 
         <div id="main">{% block content %}{% endblock %}</div>
 
-        <div id="banner"><a href="https://pretix.eu/pycascades/remote-2021/" target="_blank"><strong>Tickets available!</strong></a>
-        </div>
+        {% corner_banner %}
+
         <footer>
           <div class="container">
             <ul class="links">
               <li><a href="/code-of-conduct">Code of Conduct</a>
               </li>
-              <li class="slack"><a href="bag('pycascades.SLACK_URL')" target="_blank"><i class="fa fa-slack"></i> PyCascades</a>
+              <li class="slack"><a href="{{ SLACK_URL }}" target="_blank"><i class="fa fa-slack"></i> PyCascades</a>
               </li>
-              <li class="twitter"><a href="bag('pycascades.TWITTER_URL')" target="_blank"><i class="fa fa-twitter"></i> PyCascades</a>
+              <li class="twitter"><a href="{{ TWITTER_URL }}" target="_blank"><i class="fa fa-twitter"></i> PyCascades</a>
               </li>
-              <li class="instagram"><a href="bag('pycascades.INSTAGRAM_URL')" target="_blank"><i class="fa fa-instagram"></i> PyCascades</a>
+              <li class="instagram"><a href="{{ INSTAGRAM_URL }}" target="_blank"><i class="fa fa-instagram"></i> PyCascades</a>
               </li>
             </ul>
             {% block logos %}
@@ -63,11 +69,13 @@
                 {% endcomment %}
             {% endblock %}
           </div>
-        </footer><a id="menu-trigger" ff-bg="/static/images/menu.svg" ng-click="isMenuVisible=!isMenuVisible" class="bg-contain"></a>
-        <div id="menu" ng-show="isMenuVisible" ng-click="isMenuVisible=false" class="ng-cloak"><a ff-bg="/static/images/close.svg" ng-click="isMenuVisible=false" class="close bg-contain"></a>
-            {% comment %}
-                {% include "includes/nav.jade" %}       
-            {% endcomment %}
+        </footer>
+
+        <a id="menu-trigger" ff-bg="/static/images/menu.svg" ng-click="isMenuVisible=!isMenuVisible" class="bg-contain"></a>
+        <div id="menu" ng-show="isMenuVisible" ng-click="isMenuVisible=false" class="ng-cloak">
+            <a ff-bg="/static/images/close.svg" ng-click="isMenuVisible=false" class="close bg-contain"></a>
+            {% include "includes/nav.html" %}
+        </div>
 
         {# Global javascript #}
         {% assets 'pycascades.js' %}
