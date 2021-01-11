@@ -38,10 +38,12 @@ class HomePage(Page):
     content_panels = Page.content_panels + [
         FieldPanel("intro_title"),
         FieldPanel("intro_content"),
-        MultiFieldPanel([
-            ImageChooserPanel("cover_logo"),
-            ImageChooserPanel("background"),
-        ]),
+        MultiFieldPanel(
+            [
+                ImageChooserPanel("cover_logo"),
+                ImageChooserPanel("background"),
+            ]
+        ),
         FieldPanel("custom_template_name"),
     ]
 

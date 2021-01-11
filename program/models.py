@@ -14,7 +14,6 @@ from wagtail.snippets.models import register_snippet
 
 
 class TalkList(Page):
-
     def get_published_speakers(self):
         return Speaker.objects.all().order_by("talk__title")
 
@@ -41,14 +40,15 @@ class Talk(Page):
                 FieldPanel("slides"),
                 FieldPanel("video"),
             ],
-            heading="Talk Links"
+            heading="Talk Links",
         ),
-        MultiFieldPanel([
+        MultiFieldPanel(
+            [
                 FieldPanel("start_time"),
                 FieldPanel("end_time"),
-            ], 
-            heading="Time Slot"
-        )
+            ],
+            heading="Time Slot",
+        ),
     ]
 
     def __str__(self):

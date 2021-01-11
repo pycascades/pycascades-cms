@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0006_simplepage_custom_template_name'),
+        ("home", "0006_simplepage_custom_template_name"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='homepage',
-            name='custom_template_name',
+            model_name="homepage",
+            name="custom_template_name",
             field=models.CharField(blank=True, max_length=500),
         ),
     ]

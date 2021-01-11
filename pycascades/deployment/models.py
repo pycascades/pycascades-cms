@@ -30,6 +30,7 @@ class Deployment(models.Model):
     )
 
     deployment_id = models.CharField(max_length=200, blank=True)
+    message = models.CharField(max_length=200, blank=True)
 
     url = models.URLField(null=True)
     deployment_url = models.URLField(null=True)

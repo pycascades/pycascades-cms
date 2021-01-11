@@ -7,14 +7,20 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wagtailimages', '0022_uploadedimage'),
-        ('home', '0007_homepage_custom_template_name'),
+        ("wagtailimages", "0022_uploadedimage"),
+        ("home", "0007_homepage_custom_template_name"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='homepage',
-            name='background',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailimages.image'),
+            model_name="homepage",
+            name="background",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name="+",
+                to="wagtailimages.image",
+            ),
         ),
     ]
