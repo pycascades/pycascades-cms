@@ -47,6 +47,7 @@ class Organizer(models.Model):
     panels = [
         FieldPanel("name"),
         FieldPanel("title"),
+        FieldPanel("section"),
         FieldPanel("bio"),
         MultiFieldPanel(
             [
