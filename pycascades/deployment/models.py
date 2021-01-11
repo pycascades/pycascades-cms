@@ -76,7 +76,9 @@ def deploy(sender, instance, **kwargs):
     api_request = pynetlify.APIRequest(config.api_token)
     netlify_site = api_request.get_site(config.netlify_id)
 
-    instance.deployment_id = api_request.deploy_folder_to_site(settings.BUILD_DIR, netlify_site)
+    instance.deployment_id = api_request.deploy_folder_to_site(
+        settings.BUILD_DIR, netlify_site
+    )
     instance.save()
 
     connection.close()

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+
+{% block page_title %}{{ page.title }} &mdash; {{block.super}}{% endblock %}
+
+{% block body_class %}talks talk-list{% endblock %}
+
+{% block content %}
+  <div class="container">
+
+      <div class="item-list">
+      {% for talk in page.get_published_talks %}
+        {% for speaker in talk.speakers.all %}
+
+          <div class="item"><a href="{{ talk.url }}">
+              {% if speaker.headshot %}
+
+                {% image speaker.headshot fill-200x200 as thumbnail_small %}
+                {% image speaker.headshot fill-400x400 as thumbnail_large %}
+                <div ff-bg="{{ thumbnail_small.url }}" ff-bg-2x="{{ thumbnail_large.url }}" class="headshot image bg-contain"></div>
+
+              {% else %}
+                <div ff-bg="/static/images/headshot.png" ff-bg-2x="/static/images/headshot.png" class="headshot image bg-contain"></div>
+              {% endif %}
+
+              <h3>{{ talk.title }}</h3>
+              <div class="byline">{{ speaker.name }}</div></a>
+          </div>
+        {% endfor %}
+    {% endfor %}
+    </div>
+  </div>
+{% endblock %}

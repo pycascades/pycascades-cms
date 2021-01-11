@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('deployment', '0003_deployment_configuration'),
+        ("deployment", "0003_deployment_configuration"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='netlifyconfiguration',
-            name='api_token',
-            field=models.CharField(default='', max_length=200),
+            model_name="netlifyconfiguration",
+            name="api_token",
+            field=models.CharField(default="", max_length=200),
         ),
     ]

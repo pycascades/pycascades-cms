@@ -6,17 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('deployment', '0005_auto_20210110_2150'),
+        ("deployment", "0005_auto_20210110_2150"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='deployment',
-            name='netlify_id',
+            model_name="deployment",
+            name="netlify_id",
         ),
         migrations.AddField(
-            model_name='deployment',
-            name='deployment_id',
+            model_name="deployment",
+            name="deployment_id",
             field=models.CharField(blank=True, max_length=200),
         ),
     ]

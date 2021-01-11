@@ -6,7 +6,6 @@ from wagtail.admin.edit_handlers import FieldPanel
 
 
 class NewsList(Page):
-
     def get_live_posts(self):
         posts = super().get_children().type(NewsPost).live().specific()
         return sorted(posts, key=lambda p: p.date, reverse=True)
