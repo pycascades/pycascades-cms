@@ -5,6 +5,8 @@
 
 {% block content %}
 <div class="container">
-    {{ page.content|richtext }}
+    {% block content_body %}
+        {{ page.content|richtext }}
+    {% endblock %}
 </div>
 {% endblock %}

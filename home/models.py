@@ -4,11 +4,15 @@ from wagtail.core.models import Page
 from wagtail.images.models import Image
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.core.fields import RichTextField
-from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
 from wagtail.snippets.models import register_snippet
 
 
 class HomePage(Page):
+
+    intro_title = RichTextField(blank=True)
+    intro_content = RichTextField(blank=True)
+
     cover_logo = models.ForeignKey(
         "wagtailimages.Image",
         null=True,
@@ -16,22 +20,45 @@ class HomePage(Page):
         on_delete=models.SET_NULL,
         related_name="+",
     )
+    background = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
 
-    intro_title = RichTextField(blank=True)
-    intro_content = RichTextField(blank=True)
+    custom_template_name = models.CharField(max_length=500, blank=True)
+
+    def get_template(self, request):
+        if self.custom_template_name:
+            return f"pages/{self.custom_template_name}"
+        return "home/home_page.html"
 
     content_panels = Page.content_panels + [
-        ImageChooserPanel("cover_logo"),
         FieldPanel("intro_title"),
         FieldPanel("intro_content"),
+        MultiFieldPanel([
+            ImageChooserPanel("cover_logo"),
+            ImageChooserPanel("background"),
+        ]),
+        FieldPanel("custom_template_name"),
     ]
 
 
 class SimplePage(Page):
     content = RichTextField(blank=True)
 
+    custom_template_name = models.CharField(max_length=500, blank=True)
+
+    def get_template(self, request):
+        if self.custom_template_name:
+            return f"pages/{self.custom_template_name}"
+        return "pages/simple_page.html"
+
     content_panels = Page.content_panels + [
         FieldPanel("content"),
+        FieldPanel("custom_template_name"),
     ]
 
 

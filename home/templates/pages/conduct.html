@@ -1,0 +1,17 @@
+{% extends "pages/simple_page.html" %}
+{% load wagtailcore_tags %}
+
+{% block content_body %}
+
+<div class="conduct-violations">
+  <h3>report a violation</h3>
+  <ul>
+    <li><a href="/code-of-conduct-reporting/">Reporting Guide</a>
+    </li>
+    <li><a href="/code-of-conduct-response/">Response Playbook</a>
+    </li>
+  </ul>
+</div>
+
+{{ page.content|richtext }}
+{% endblock %}

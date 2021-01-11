@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block page_title %}{{ page.title }} &mdash; {{ block.super }}{% endblock %}
+
+{% block body_class %}about{% endblock %}
+
+{% block content %}
+<section id="intro">
+  <div du-parallax="du-parallax" y="animator" class="background">
+    {% image page.background width-1200 as bg_image %}
+    <div ff-bg="{{ bg_image.url }}" class="image bg-cover"></div>
+  </div>
+  <div class="overlay"></div>
+  <div class="main vcontainer">
+    <div class="inner">
+      <div class="container">
+        <div in-view="in-view" class="row fade-up">
+          <div class="one-half column">
+            <h2>{{ page.intro_title|richtext }}</h2>
+          </div>
+          <div class="one-half column">{{ page.intro_content|richtext }}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>{% endblock %}
