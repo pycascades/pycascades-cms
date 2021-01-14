@@ -43,7 +43,7 @@ class Deployment(models.Model):
         max_length=100, choices=BUILD_CHOICES, default=NETLIFY_BUILD
     )
 
-    logs = models.TextField()
+    log_message = models.TextField()
 
     deployment_id = models.CharField(max_length=200, blank=True)
     message = models.CharField(max_length=200, blank=True)
@@ -61,7 +61,28 @@ class Deployment(models.Model):
     ]
 
     def __str__(self):
-        return f"Deploy to {self.configuration.name}"
+        if self.configuration:
+            return f"Deploy to {self.configuration.name}"
+        return f"Deploy {self.id}"
+
+
+class Log(models.Model):
+    timestamp = models.DateTimeField(auto_now=True)
+    message = models.TextField()
+
+    deploy = models.ForeignKey(
+        Deployment,
+        related_name="logs",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+    ) 
+
+    def __str__(self):
+        return self.message
+
+    class Meta:
+        ordering = ["-timestamp"]
 
 
 def postpone(function):
@@ -83,11 +104,10 @@ def deploy(sender, instance, **kwargs):
     Trigger a build on Netlify, if NETLIFY_BUILD_HOOK is supplied, or
     build static pages, then upload incremental changes to Netlify.
     """
-    if instance.deployment_id or instance.logs:
+    if instance.deployment_id or instance.logs.count():
         return
 
-    instance.logs = "Started..."
-    instance.save()
+    Log.objects.create(deploy=instance, message="Started...")
 
     # this uses the Wagtail Bakery command to generate
     # static pages in the specified subdirectory
@@ -95,8 +115,7 @@ def deploy(sender, instance, **kwargs):
     print("getting all remote files")
     remote_build = subprocess.check_output(["python", "manage.py", instance.builder])
 
-    instance.logs = remote_build
-    instance.save()
+    Log.objects.create(deploy=instance, message=remote_build)
 
     env = os.environ.copy()
     env["RUN_LOCAL_STATIC_GEN"] = "1"
@@ -107,19 +126,20 @@ def deploy(sender, instance, **kwargs):
         env=env,
     )
 
-    instance.logs += local_build
-    instance.save()
+    Log.objects.create(deploy=instance, message=local_build)
 
     config = instance.configuration
     api_request = pynetlify.APIRequest(config.api_token)
     netlify_site = api_request.get_site(config.netlify_id)
 
-    instance.logs += f"\n\nDeploying {settings.BUILD_DIR}"
+    Log.objects.create(deploy=instance, message=f"Deploying {settings.BUILD_DIR}")
 
     instance.deployment_id = api_request.deploy_folder_to_site(
         settings.BUILD_DIR, netlify_site
     )
     instance.save()
+
+    Log.objects.create(deploy=instance, message=f"Deployment finished!")
 
     connection.close()
 

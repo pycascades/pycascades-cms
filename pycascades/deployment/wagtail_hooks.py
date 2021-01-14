@@ -2,7 +2,7 @@ from django.conf import settings
 from wagtail.contrib.modeladmin.options import ModelAdmin, modeladmin_register
 from wagtail.contrib.modeladmin.helpers import PermissionHelper
 
-from .models import Deployment, NetlifyConfiguration
+from .models import Deployment, NetlifyConfiguration, Log
 
 
 class DeploymentPermissionHelper(PermissionHelper):
@@ -43,6 +43,15 @@ class DeploymentAdmin(ModelAdmin):
     permission_helper_class = DeploymentPermissionHelper
 
 
+class LogsAdmin(ModelAdmin):
+    model = Log
+    menu_icon = "cogs"
+    menu_order = 0
+    add_to_settings_menu = True
+    inspect_view_enabled = True
+
+
 if "wagtail.contrib.modeladmin" in settings.INSTALLED_APPS:
     modeladmin_register(NetlifyConfigurationAdmin)
     modeladmin_register(DeploymentAdmin)
+    modeladmin_register(LogsAdmin)
