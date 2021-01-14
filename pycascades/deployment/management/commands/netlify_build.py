@@ -44,9 +44,6 @@ class Command(build.Command):
         # Build views
         self.build_views()
 
-        settings.MEDIA_ROOT = old_media_root
-        storage.default_storage = old_storage
-
         # Close out
         build.logger.info("Build finished")
 
@@ -81,16 +78,16 @@ class Command(build.Command):
                     outfile.write(infile.read())
 
 
-        #for obj in bucket.objects.all():
-        #    print(obj.key)
+        for obj in bucket.objects.all():
+            print(obj.key)
 
-        #    target_dir = path.join(self.fs_name, self.build_dir, settings.MEDIA_URL.lstrip('/'))
-        #    obj_dir = path.join(target_dir, os.path.dirname(obj.key))
+            target_dir = path.join(self.fs_name, self.build_dir, settings.MEDIA_URL.lstrip('/'))
+            obj_dir = path.join(target_dir, os.path.dirname(obj.key))
 
-        #    if not os.path.exists(obj_dir):
-        #        os.makedirs(obj_dir, exist_ok=True)
+            if not os.path.exists(obj_dir):
+                os.makedirs(obj_dir, exist_ok=True)
 
-        #    s3_file = default_storage.connection.Object(obj.bucket_name, obj.key)
+            s3_file = default_storage.connection.Object(obj.bucket_name, obj.key)
 
-        #    print(f"Downloading file from {target_dir}/{obj.key}")
-        #    s3_file.download_file(f"{target_dir}/{obj.key}")
+            print(f"Downloading file from {target_dir}/{obj.key}")
+            s3_file.download_file(f"{target_dir}/{obj.key}")

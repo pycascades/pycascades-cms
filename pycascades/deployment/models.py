@@ -1,3 +1,6 @@
+import os
+import subprocess
+
 from threading import Thread
 from django.db import models
 from django.core.management import call_command
@@ -38,6 +41,8 @@ class Deployment(models.Model):
     )
     builder = models.CharField(max_length=100, choices=BUILD_CHOICES, default=NETLIFY_BUILD)
 
+    logs = models.TextField()
+
     deployment_id = models.CharField(max_length=200, blank=True)
     message = models.CharField(max_length=200, blank=True)
 
@@ -76,12 +81,22 @@ def deploy(sender, instance, **kwargs):
     Trigger a build on Netlify, if NETLIFY_BUILD_HOOK is supplied, or
     build static pages, then upload incremental changes to Netlify.
     """
-    if instance.deployment_id:
+    if instance.deployment_id or instance.logs:
         return
 
     # this uses the Wagtail Bakery command to generate
     # static pages in the specified subdirectory
-    call_command("build")
+
+    print("getting all remote files")
+    remote_build = subprocess.check_output(["python", "manage.py", instance.builder])
+
+    env = os.environ.copy()
+    env["RUN_LOCAL_STATIC_GEN"] = "1"
+    print("running local build")
+    local_build = subprocess.check_output(["python", "manage.py", instance.builder], env=env)
+
+    instance.logs = f"{remote_build}\n\n{local_build}"
+    instance.save()
 
     config = instance.configuration
     api_request = pynetlify.APIRequest(config.api_token)
