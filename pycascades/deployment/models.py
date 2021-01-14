@@ -22,12 +22,21 @@ class NetlifyConfiguration(models.Model):
 
 
 class Deployment(models.Model):
+    BAKERY_BUILD = "build"
+    NETLIFY_BUILD = "netlify_build"
+
+    BUILD_CHOICES = (
+        (BAKERY_BUILD, "Default Wagtail Build"),
+        (NETLIFY_BUILD, "Custom PyCascades Build")
+    )
+
     configuration = models.ForeignKey(
         NetlifyConfiguration,
         related_name="deploys",
         null=True,
         on_delete=models.SET_NULL,
     )
+    builder = models.CharField(max_length=100, choices=BUILD_CHOICES, default=NETLIFY_BUILD)
 
     deployment_id = models.CharField(max_length=200, blank=True)
     message = models.CharField(max_length=200, blank=True)
