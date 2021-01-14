@@ -6,14 +6,14 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('deployment', '0008_deployment_builder'),
+        ("deployment", "0008_deployment_builder"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='deployment',
-            name='logs',
-            field=models.TextField(default=''),
+            model_name="deployment",
+            name="logs",
+            field=models.TextField(default=""),
             preserve_default=False,
         ),
     ]

@@ -30,7 +30,7 @@ class Deployment(models.Model):
 
     BUILD_CHOICES = (
         (BAKERY_BUILD, "Default Wagtail Build"),
-        (NETLIFY_BUILD, "Custom PyCascades Build")
+        (NETLIFY_BUILD, "Custom PyCascades Build"),
     )
 
     configuration = models.ForeignKey(
@@ -39,7 +39,9 @@ class Deployment(models.Model):
         null=True,
         on_delete=models.SET_NULL,
     )
-    builder = models.CharField(max_length=100, choices=BUILD_CHOICES, default=NETLIFY_BUILD)
+    builder = models.CharField(
+        max_length=100, choices=BUILD_CHOICES, default=NETLIFY_BUILD
+    )
 
     logs = models.TextField()
 
@@ -84,23 +86,35 @@ def deploy(sender, instance, **kwargs):
     if instance.deployment_id or instance.logs:
         return
 
+    instance.logs = "Started..."
+    instance.save()
+
     # this uses the Wagtail Bakery command to generate
     # static pages in the specified subdirectory
 
     print("getting all remote files")
     remote_build = subprocess.check_output(["python", "manage.py", instance.builder])
 
+    instance.logs = remote_build
+    instance.save()
+
     env = os.environ.copy()
     env["RUN_LOCAL_STATIC_GEN"] = "1"
-    print("running local build")
-    local_build = subprocess.check_output(["python", "manage.py", instance.builder], env=env)
 
-    instance.logs = f"{remote_build}\n\n{local_build}"
+    print("running local build")
+    local_build = subprocess.check_output(
+        ["python", "manage.py", instance.builder, "--keep-build-dir", "--skip-media"],
+        env=env,
+    )
+
+    instance.logs += local_build
     instance.save()
 
     config = instance.configuration
     api_request = pynetlify.APIRequest(config.api_token)
     netlify_site = api_request.get_site(config.netlify_id)
+
+    instance.logs += f"\n\nDeploying {settings.BUILD_DIR}"
 
     instance.deployment_id = api_request.deploy_folder_to_site(
         settings.BUILD_DIR, netlify_site

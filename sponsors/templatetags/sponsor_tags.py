@@ -28,8 +28,4 @@ def npo_tiers():
 
 @register.inclusion_tag("sponsors/sponsor_logos_smol.html")
 def sponsor_footer():
-    return {
-        "sponsors": Sponsor.objects.filter(
-            tier__type=SponsorTier.CORPORATE
-        )
-    }
+    return {"sponsors": Sponsor.objects.filter(tier__type=SponsorTier.CORPORATE)}

@@ -19,9 +19,6 @@ class NetlifyConfigurationAdmin(ModelAdmin):
     menu_icon = "cogs"
     menu_order = 0
     add_to_settings_menu = True
-    # list_display = ('datetime_started', 'datetime_finished', 'deployment_url', 'url')
-    # list_filter = ('datetime_started',)
-
     inspect_view_enabled = True
 
 
@@ -33,6 +30,7 @@ class DeploymentAdmin(ModelAdmin):
 
     list_display = (
         "datetime_started",
+        "configuration",
         "builder",
         "datetime_finished",
         "deployment_id",

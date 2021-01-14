@@ -6,13 +6,20 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('deployment', '0007_deployment_message'),
+        ("deployment", "0007_deployment_message"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='deployment',
-            name='builder',
-            field=models.CharField(choices=[('build', 'Default Wagtail Build'), ('netlify_build', 'Custom PyCascades Build')], default='netlify_build', max_length=100),
+            model_name="deployment",
+            name="builder",
+            field=models.CharField(
+                choices=[
+                    ("build", "Default Wagtail Build"),
+                    ("netlify_build", "Custom PyCascades Build"),
+                ],
+                default="netlify_build",
+                max_length=100,
+            ),
         ),
     ]

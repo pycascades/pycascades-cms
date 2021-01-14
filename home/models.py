@@ -32,10 +32,7 @@ class HomePage(Page):
 
     def get_template(self, request):
         if self.custom_template_name:
-            return [
-                self.custom_template_name,
-                f"pages/{self.custom_template_name}"
-            ]
+            return [self.custom_template_name, f"pages/{self.custom_template_name}"]
         return "home/home_page.html"
 
     content_panels = Page.content_panels + [
@@ -58,10 +55,7 @@ class SimplePage(Page):
 
     def get_template(self, request):
         if self.custom_template_name:
-            return [
-                self.custom_template_name,
-                f"pages/{self.custom_template_name}"
-            ]
+            return [self.custom_template_name, f"pages/{self.custom_template_name}"]
         return "pages/simple_page.html"
 
     content_panels = Page.content_panels + [

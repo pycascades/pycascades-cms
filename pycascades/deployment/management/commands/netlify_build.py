@@ -5,7 +5,7 @@ import os
 
 from fs import path
 from fs import copy
-from django.core.files import storage 
+from django.core.files import storage
 from django.core.files.storage import get_storage_class, default_storage
 
 from django.conf import settings
@@ -13,7 +13,6 @@ from wagtail.documents import get_document_model
 
 
 class Command(build.Command):
-
     def handle(self, *args, **options):
         """
         Making it happen.
@@ -35,12 +34,6 @@ class Command(build.Command):
         if not options.get("skip_media"):
             self.build_media()
 
-        old_media_root = settings.MEDIA_ROOT
-        old_storage = storage.default_storage
-
-        settings.MEDIA_ROOT = f"{self.build_dir}/{self.media_root}"
-        storage.default_storage = get_storage_class('django.core.files.storage.FileSystemStorage')
-
         # Build views
         self.build_views()
 
@@ -55,7 +48,6 @@ class Command(build.Command):
         if self.verbosity > 1:
             self.stdout.write("Building media directory")
 
-
         try:
             bucket = default_storage.bucket
         except AttributeError:
@@ -64,7 +56,7 @@ class Command(build.Command):
             return
 
         Document = get_document_model()
-        target_dir = path.join(self.fs_name, self.build_dir, settings.MEDIA_URL.lstrip('/'))
+        target_dir = path.join(self.fs_name, self.build_dir)
 
         # Documents managed by Wagtail are handled differently when exposed. We need to make
         # sure that we creating the correct structure in the /media/ folder for documents.
@@ -77,11 +69,12 @@ class Command(build.Command):
                 with open(f"{target_dir}/{doc.url}", "wb") as outfile:
                     outfile.write(infile.read())
 
-
         for obj in bucket.objects.all():
             print(obj.key)
 
-            target_dir = path.join(self.fs_name, self.build_dir, settings.MEDIA_URL.lstrip('/'))
+            target_dir = path.join(
+                self.fs_name, self.build_dir, settings.MEDIA_URL.lstrip("/")
+            )
             obj_dir = path.join(target_dir, os.path.dirname(obj.key))
 
             if not os.path.exists(obj_dir):
