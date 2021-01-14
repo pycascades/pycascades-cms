@@ -6,9 +6,9 @@ import os
 from fs import path
 from fs import copy
 from django.core.files.storage import default_storage
-from django.utils.encoding import smart_text
 
 from django.conf import settings
+from wagtail.documents import get_document_model
 
 
 class Command(build.Command):
@@ -28,6 +28,20 @@ class Command(build.Command):
             print("this is not an S3 storage")
             super().build_media()
             return
+
+        Document = get_document_model()
+        target_dir = path.join(self.fs_name, self.build_dir, settings.MEDIA_URL.lstrip('/'))
+
+        # Documents managed by Wagtail are handled differently when exposed. We need to make
+        # sure that we creating the correct structure in the /media/ folder for documents.
+        for doc in Document.objects.all():
+            filename = f"{target_dir}/{doc.url}"
+            if not os.path.exists(os.path.dirname(filename)):
+                os.makedirs(os.path.dirname(filename), exist_ok=True)
+
+            with doc.file.open("rb") as infile:
+                with open(f"{target_dir}/{doc.url}", "wb") as outfile:
+                    outfile.write(infile.read())
 
 
         for obj in bucket.objects.all():

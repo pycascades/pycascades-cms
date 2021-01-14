@@ -30,13 +30,15 @@ class DeploymentAdmin(ModelAdmin):
     menu_icon = "success"
     menu_order = 0
     add_to_settings_menu = True
+
     list_display = (
         "datetime_started",
+        "builder",
         "datetime_finished",
         "deployment_id",
-        "deployment_url",
         "url",
     )
+
     list_filter = ("datetime_started",)
 
     inspect_view_enabled = True

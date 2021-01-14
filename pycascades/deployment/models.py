@@ -50,6 +50,7 @@ class Deployment(models.Model):
 
     panels = [
         FieldPanel("configuration"),
+        FieldPanel("builder"),
     ]
 
     def __str__(self):
