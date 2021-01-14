@@ -26,6 +26,7 @@ class Command(build.Command):
             bucket = default_storage.bucket
         except AttributeError:
             print("this is not an S3 storage")
+            super().build_media()
             return
 
 
@@ -33,9 +34,10 @@ class Command(build.Command):
             print(obj.key)
 
             target_dir = path.join(self.fs_name, self.build_dir, settings.MEDIA_URL.lstrip('/'))
-            print(target_dir)
-            if not os.path.exists(target_dir):
-                os.makedirs(target_dir, exists_ok=True)
+            obj_dir = path.join(target_dir, os.path.dirname(obj.key))
+
+            if not os.path.exists(obj_dir):
+                os.makedirs(obj_dir, exist_ok=True)
 
             s3_file = default_storage.connection.Object(obj.bucket_name, obj.key)
 
