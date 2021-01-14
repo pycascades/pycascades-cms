@@ -46,6 +46,11 @@ class DeploymentAdmin(ModelAdmin):
 class LogsAdmin(ModelAdmin):
     model = Log
     menu_icon = "cogs"
+    list_display = (
+        "timestamp",
+        "deploy",
+        "message",
+    )
     menu_order = 0
     add_to_settings_menu = True
     inspect_view_enabled = True
