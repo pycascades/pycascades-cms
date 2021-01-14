@@ -32,13 +32,14 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 140px;
+    height: 170px;
     overflow: hidden;
 }
 
 /* Footer sponsor logo stuff */
 footer .sponsor-logos-footer {
     width: 75%;
+    height: 60px;
     margin: 0 auto;
 }
 
@@ -57,30 +58,11 @@ footer .sponsor-logos-footer li {
 }
 
 footer .sponsor-logos-footer a img {
-    width: 100%;
+    width: auto;
     padding: 0 1rem;
 }
 
-/* Hack: rover's logo is weird, adjust the padding to make it display correctly. */
-footer .sponsor-logos-footer li.rover-com {
-    margin-left: -1.5rem;
-    margin-right: -3rem;
-}
-/* Hack: Microsoft */
-footer .sponsor-logos-footer li.microsoft {
-    padding-left: -0.5rem;
-    padding-right: -0.5rem;
-}
-/* Hack: mozilla's logo is weird as well, adjust the padding to make it display correctly. */
-footer .sponsor-logos-footer li.mozilla {
-    margin-right: -4rem;
-}
-footer .sponsor-logos-footer li.mozilla a img {
-    width: 80%;
-}
-
 /* Prevent side scrolling */
-
 #page {
     width: 100vw;
     overflow-x: hidden;

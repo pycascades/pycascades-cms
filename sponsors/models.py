@@ -36,6 +36,7 @@ class Sponsor(models.Model):
         blank=True,
         on_delete=models.SET_NULL,
         related_name="+",
+        help_text="Logo displayed in the footer (max height 70px)"
     )
 
     sign_date = models.DateField()

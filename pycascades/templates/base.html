@@ -1,6 +1,7 @@
 {% load assets %}
 {% load wagtailcore_tags corner_banner_tags %}
 {% load menu_tags %}
+{% load sponsor_tags %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -66,9 +67,7 @@
               </li>
             </ul>
             {% block logos %}
-                {% comment %}
-                {% include "includes/sponsor_logos_smol.jade.html" %}
-                {% endcomment %}
+                {% sponsor_footer %}
             {% endblock %}
           </div>
         </footer>

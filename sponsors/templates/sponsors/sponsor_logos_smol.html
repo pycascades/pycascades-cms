@@ -1,0 +1,14 @@
+{% load wagtailimages_tags %}
+<div class="sponsor-logos-footer">
+  <ol>
+  {% for sponsor in sponsors %}
+    <li class="{{ sponsor.tier.slug }} {{ sponsor.name|slugify }}">
+      <a href="{{ sponsor.website }}" target="_blank" title="{{ sponsor.name }}">
+
+        {% image sponsor.logo_dark_background height-75 as sponsor_thumb %}
+        <img src="{{ sponsor_thumb.url }}"
+      </a>
+    </li>
+  {% endfor %}
+  </ol>
+</div>

@@ -24,3 +24,12 @@ def corporate_tiers():
 @register.simple_tag
 def npo_tiers():
     return SponsorTier.objects.filter(sponsors__isnull=False, type=SponsorTier.NPO)
+
+
+@register.inclusion_tag("sponsors/sponsor_logos_smol.html")
+def sponsor_footer():
+    return {
+        "sponsors": Sponsor.objects.filter(
+            tier__type=SponsorTier.CORPORATE
+        )
+    }
