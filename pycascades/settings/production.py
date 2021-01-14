@@ -26,4 +26,7 @@ AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 AWS_STORAGE_BUCKET_NAME = "pycascades-cms-files"
 AWS_S3_ENDPOINT_URL = "https://sfo2.digitaloceanspaces.com"
 
+#DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+#MEDIA_ROOT = "/Users/roadside.seb/Worx/PyCascades/pycascades-cms/_build/media/"
+
 django_heroku.settings(locals())
