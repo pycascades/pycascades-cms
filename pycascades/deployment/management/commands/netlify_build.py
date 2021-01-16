@@ -5,10 +5,13 @@ import os
 
 from fs import path
 from fs import copy
+
+from django.conf import settings
+from django.core.management.base import CommandError
 from django.core.files import storage
 from django.core.files.storage import get_storage_class, default_storage
 
-from django.conf import settings
+from wagtail.contrib.redirects.models import Redirect
 from wagtail.documents import get_document_model
 
 
@@ -33,6 +36,8 @@ class Command(build.Command):
         # Build the media directory
         if not options.get("skip_media"):
             self.build_media()
+
+        self.build_redirects()
 
         # Build views
         self.build_views()
@@ -84,3 +89,34 @@ class Command(build.Command):
 
             print(f"Downloading file from {target_dir}/{obj.key}")
             s3_file.download_file(f"{target_dir}/{obj.key}")
+
+    def build_redirects(self):
+        """Redirects are configured in a file called '_redirects'
+        at the root of the build directory
+        """
+        import pdb; pdb.set_trace()
+
+        if not hasattr(settings, "BUILD_DIR"):
+            raise CommandError("BUILD_DIR is not defined in settings")
+        redirect_file = os.path.join(settings.BUILD_DIR, "_redirects")
+        redirects_str, count = build_redirects()
+        fo = open(redirect_file, "w")
+        fo.write(redirects_str)
+        fo.close()
+        self.stdout.write("Written %s redirect(s)" % (count))
+
+
+def build_redirects():
+    out = "# Redirects from what the browser requests to what we serve\n"
+    count = 0
+    for redirect in Redirect.objects.all():
+        status_code = "302"
+        if redirect.is_permanent:
+            status_code = "301"
+
+        redirect_line = f"{redirect.old_path}\t{redirect.link}\t{status_code}\n"
+        print(f"Adding line: {redirect_line}")
+        
+        out += redirect_line
+        count += 1
+    return out, count

@@ -18,7 +18,11 @@ def build_redirects():
         status_code = "302"
         if redirect.is_permanent:
             status_code = "301"
-        out += "%s\t%s\t%s\n" % (redirect.old_path, redirect.link, status_code)
+
+        redirect_line = f"{redirect.old_path}\t{redirect.link}\t{status_code}\n"
+        print(f"Adding line: {redirect_line}")
+        
+        out += redirect_line
         count += 1
     return out, count
 
@@ -31,6 +35,8 @@ class Command(BaseCommand):
         """Redirects are configured in a file called '_redirects'
         at the root of the build directory
         """
+        import pdb; pdb.set_trace()
+
         if not hasattr(settings, "BUILD_DIR"):
             raise CommandError("BUILD_DIR is not defined in settings")
         redirect_file = os.path.join(settings.BUILD_DIR, "_redirects")
