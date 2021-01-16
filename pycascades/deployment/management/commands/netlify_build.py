@@ -94,8 +94,6 @@ class Command(build.Command):
         """Redirects are configured in a file called '_redirects'
         at the root of the build directory
         """
-        import pdb; pdb.set_trace()
-
         if not hasattr(settings, "BUILD_DIR"):
             raise CommandError("BUILD_DIR is not defined in settings")
         redirect_file = os.path.join(settings.BUILD_DIR, "_redirects")
