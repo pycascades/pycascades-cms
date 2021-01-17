@@ -5,11 +5,10 @@
     </li>
 
     {% for menu_page in menu_pages %}
-    </li>
-      {% if menu_page.get_children and not menu_page.specific.hide_children %}
+      {% if menu_page.get_descendants.in_menu.live and not menu_page.specific.hide_children %}
         <li class="{{ menu_page.slug }}"><a>{{ menu_page.title }}</a>
           <ul>
-            {% for child_page in menu_page.get_children %}
+            {% for child_page in menu_page.get_descendants.in_menu.live %}
               {% if child_page.show_in_menus %}
               <li class="{{ child_page.slug }}">
                 <a href="{{ child_page.url }}">{{ child_page.title }}</a>
@@ -19,9 +18,8 @@
           </ul>
         </li>
       {% else %}
-        <li class="{{ menu_page.slug }}"><a href="{{ menu_page.url }}">{{ menu_page.title }}</a>
+        <li class="{{ menu_page.slug }}"><a href="{{ menu_page.url }}">{{ menu_page.title }}</a></li>
       {% endif %}
-    </li>
     {% endfor %}
 
     <li class="attend">
@@ -29,36 +27,5 @@
         Tickets
       </a>
     </li>
-
-    {% comment %}
-    <li class="about"><a href="">About</a>
-      <ul>
-        <li class="about"><a href="/the-conference">The Conference</a>
-        </li>
-        <li class="organizers"><a href="/organizers">The Team</a>
-        </li>
-        <li class="conduct"><a href="/code-of-conduct">Code of Conduct</a>
-        </li>
-        <li class="diversity"><a href="/diversity-and-inclusion">Diversity & Inclusion</a>
-        </li>
-        <li class="grants"><a href="/grants">Grants</a>
-        </li>
-        <li class="volunteer"><a href="/volunteer">Volunteer</a>
-        </li>
-      </ul>
-    </li>
-    <li class="schedule"><a href="">Program</a>
-      <ul>
-        <li class="talks"><a href="/talks">Speakers</a>
-        </li>
-      </ul>
-    </li>
-    <li class="become-a-sponsor"><a href="">Sponsors</a>
-      <ul>
-        <li class="become-a-sponsor"><a href="/become-a-sponsor">Become A Sponsor</a>
-        </li>
-      </ul>
-    </li>
-    {% endcomment %}
   </ul>
 </nav>
