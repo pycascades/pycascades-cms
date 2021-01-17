@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+
+{% block page_title %}{{ page.title }} &mdash; {{block.super}}{% endblock %}
+
+{% block body_class %}schedule{% endblock %}
+
+{% block content %}
+  <div class="container">
+    {{ page.widget_embed_code|safe }}
+  </div>
+{% endblock %}
+
+
+{% block extra_js %}
+    {{ block.super }}
+    {{ page.widget_head_code|safe }}
+{% endblock %}

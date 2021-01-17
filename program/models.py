@@ -13,6 +13,21 @@ from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.snippets.models import register_snippet
 
 
+class PretalxSchedule(Page):
+    pretalx_event_url = models.URLField(verbose_name="Pretalx Event URL", blank=True)
+    widget_head_code = models.CharField(max_length=2000)
+    widget_embed_code = models.TextField()
+
+    def get_template(self, request, *args, **kwargs):
+        return "program/pretalx_schedule.html"
+
+    content_panels = Page.content_panels + [
+        FieldPanel("pretalx_event_url"),
+        FieldPanel("widget_head_code"),
+        FieldPanel("widget_embed_code"),
+    ]
+
+
 class TalkList(Page):
     def get_published_speakers(self):
         return Speaker.objects.all().order_by("talk__title")
