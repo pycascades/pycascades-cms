@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
 
 from .models import Deployment
-from .management.commands.netlify import build_redirects
+from .redirects import generate_redirect_lines
 
 
 @csrf_exempt
@@ -23,5 +23,5 @@ def success_hook(request):
 
 
 def redirects(request):
-    redirects_str, count = build_redirects()
-    return HttpResponse(redirects_str)
+    redirects = generate_redirect_lines()
+    return HttpResponse("\n".join(redirects))

@@ -1,18 +1,20 @@
-from genericpath import exists
-from bakery.management.commands import build
-
 import os
+
+from genericpath import exists
+from pycascades.deployment.redirects import write_redirects_to_netlify_file
+from bakery.management.commands import build
 
 from fs import path
 from fs import copy
 
 from django.conf import settings
 from django.core.management.base import CommandError
-from django.core.files import storage
-from django.core.files.storage import get_storage_class, default_storage
+from django.core.files.storage import default_storage
 
 from wagtail.contrib.redirects.models import Redirect
 from wagtail.documents import get_document_model
+
+from ...redirects import write_redirects_to_netlify_file
 
 
 class Command(build.Command):
@@ -96,25 +98,5 @@ class Command(build.Command):
         """
         if not hasattr(settings, "BUILD_DIR"):
             raise CommandError("BUILD_DIR is not defined in settings")
-        redirect_file = os.path.join(settings.BUILD_DIR, "_redirects")
-        redirects_str, count = build_redirects()
-        fo = open(redirect_file, "w")
-        fo.write(redirects_str)
-        fo.close()
-        self.stdout.write("Written %s redirect(s)" % (count))
-
-
-def build_redirects():
-    out = "# Redirects from what the browser requests to what we serve\n"
-    count = 0
-    for redirect in Redirect.objects.all():
-        status_code = "302"
-        if redirect.is_permanent:
-            status_code = "301"
-
-        redirect_line = f"{redirect.old_path}\t{redirect.link}\t{status_code}\n"
-        print(f"Adding line: {redirect_line}")
-
-        out += redirect_line
-        count += 1
-    return out, count
+        
+        write_redirects_to_netlify_file()
