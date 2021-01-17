@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block page_title %}
+  {{ self.title }} &mdash; {{ block.super }}
+{% endblock %}
+
+{% block meta_description %}PyCascades Job Board{% endblock %}
+
+{% block body_class %}sponsors job-detail{% endblock %}
+
+{% block content %}
+<div class="job container">
+
+  <h1 class="title">
+    <a href="{{ page.apply_url }}">
+      {{ self.title }}
+    </a>
+  </h1>
+
+  <div class="meta">
+    <div class="company-name">
+      <a href="{{ self.sponsor.website }}">
+        {{ self.sponsor.name }}
+      </a>
+    </div>
+    
+    {% if self.location %}
+      <div class="location">{{ self.location|richtext }}</div>
+    {% endif %}
+
+  </div>
+
+  <div class="description">{{ self.description|richtext }}</div>
+
+  <div class="apply">
+    <a href="{{ self.apply_url }}" class="button">Apply Now</a>
+    <a href="{{ self.post_url }}" class="button">Learn More</a>
+  </div>
+
+  <p class="more">
+    <a href="{{ self.get_parent.url }}">More job postings</a>
+  </p>
+</div>
+{% endblock %}

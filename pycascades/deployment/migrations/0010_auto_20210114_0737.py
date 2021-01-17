@@ -7,25 +7,41 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('deployment', '0009_deployment_logs'),
+        ("deployment", "0009_deployment_logs"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='deployment',
-            old_name='logs',
-            new_name='log_message',
+            model_name="deployment",
+            old_name="logs",
+            new_name="log_message",
         ),
         migrations.CreateModel(
-            name='Log',
+            name="Log",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('timestamp', models.DateTimeField(auto_now=True)),
-                ('message', models.TextField()),
-                ('deploy', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='logs', to='deployment.deployment')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("timestamp", models.DateTimeField(auto_now=True)),
+                ("message", models.TextField()),
+                (
+                    "deploy",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="logs",
+                        to="deployment.deployment",
+                    ),
+                ),
             ],
             options={
-                'ordering': ['-timestamp'],
+                "ordering": ["-timestamp"],
             },
         ),
     ]

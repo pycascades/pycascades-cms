@@ -114,7 +114,7 @@ def build_redirects():
 
         redirect_line = f"{redirect.old_path}\t{redirect.link}\t{status_code}\n"
         print(f"Adding line: {redirect_line}")
-        
+
         out += redirect_line
         count += 1
     return out, count

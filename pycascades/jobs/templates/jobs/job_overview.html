@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block page_title %}{{ self.title }} &mdash; {{ block.super }}{% endblock %}
+
+{% block meta_description %}PyCascades Job Board{% endblock %}
+
+{% block body_class %}sponsors job-list{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <h1>The PyCascades Job Board</h1>
+
+  <div class="item-list">
+  
+  {% for job in page.get_published_jobs %}
+
+    <div class="item">
+      <h3 class="title">
+        <a href="{{ job.url }}">{{ job.title }}</a>
+      </h3>
+
+      <div class="company-name">
+        {{ job.sponsor.name }}
+      </div>
+
+      {% if job.location %}
+        <div class="location">{{ job.location|richtext }}</div>
+      {% endif %}
+
+      {% if not forloop.last %}
+        <hr />
+      {% endif %}
+
+    </div>
+  {% endfor %}
+
+  </div>
+</div>
+{% endblock %}

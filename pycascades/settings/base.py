@@ -27,12 +27,6 @@ ASSETS_MODULES = ["pycascades.assets"]
 INSTALLED_APPS = [
     "django_assets",
     "storages",
-    "home",
-    "search",
-    "news",
-    "sponsors",
-    "team",
-    "program",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",
@@ -47,7 +41,6 @@ INSTALLED_APPS = [
     "wagtail.contrib.modeladmin",
     "bakery",
     "wagtailbakery",
-    "pycascades.deployment",
     "modelcluster",
     "taggit",
     "django.contrib.admin",
@@ -56,6 +49,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "pycascades.deployment",
+    "pycascades.jobs",
+    "home",
+    "search",
+    "news",
+    "sponsors",
+    "team",
+    "program",
 ]
 
 MIDDLEWARE = [

@@ -32,10 +32,12 @@ body.sponsors.job-list .item-list .title {
 body.sponsors.job-list .item-list .title a {
     text-decoration: none;
 }
-body.sponsors.job-list .item-list .meta .location:before {
-    content: "|";
-    margin: 0 0.3em;
+
+body.sponsors.job-list .item-list .item .company-name {
+    font-weight: bold;
+    margin-top: .5em;
 }
+
 body.sponsors.job-list .item-list .description {
     margin: 3ex 0;
 }
@@ -62,10 +64,16 @@ body.sponsors.job-detail .job h1 a {
 body.sponsors.job-detail .job .meta {
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    padding-top: 2em;
+    padding-bottom: 1em;
 }
-body.sponsors.job-detail .job .meta .location:before {
-    content: "|";
-    margin: 0 0.3em;
+body.sponsors.job-detail .job .meta .company-name{
+    font-weight: bold;
+    padding-bottom: 1em;
+
+}
+body.sponsors.job-detail .job .meta .company-name a {
+    text-decoration: none;
 }
 body.sponsors.job-detail .job .description {
     margin: 3ex 0;
