@@ -15,6 +15,17 @@ Make sure that you have Poetry running and configured to use a version of Python
 $ poetry install
 ```
 
+## Setting up via Docker
+
+Build it, bring it up and enter the app container.
+```
+make up && make enter
+```
+
+From here you can proceed to running the CMS as per below instructions.
+
+See `make help` for other commands.
+
 ### Running Django CMS
 
 You can run active the shell for Poetry and start the Django server that way:
