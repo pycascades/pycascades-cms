@@ -23,6 +23,7 @@
     const PRETALX = document.querySelector("pretalx-schedule").shadowRoot;
 
     const TALK_MAP = JSON.parse('{{ talk_map | escapejs }}');
+    console.log(TALK_MAP)
 
     // We check if an element is loaded inside pretalx-schedule
     const checkShadowElement = async selector => {
@@ -49,11 +50,9 @@
         if (['X7QMDR', 'JPTXGD', 'NCWZQQ'].indexOf(el.id) >= 0) {
           el.classList.add("all-tracks");
         }
-
         if(TALK_MAP.hasOwnProperty(lastSegment)){
           // override href
           el.setAttribute('href', TALK_MAP[lastSegment]);
-          console.log(el.id)
         } else {
           el.setAttribute('href', 'javascript:void(0');
           el.classList.add("no-link");
@@ -73,7 +72,6 @@
       style.innerHTML = '\
         .c-linear-schedule-session.no-link:hover .info { border: none; } \
         .all-tracks { \
-          color: pink; \
           grid-column-start: 2 !important; \
           grid-column-end: 4 !important; \
         } \
