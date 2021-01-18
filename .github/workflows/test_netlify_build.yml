@@ -26,7 +26,8 @@ jobs:
         poetry-version: 1.1.4
     - name: Install dependencies
       run: |
-        poetry install --dev
-    - name: Run test build
+        poetry install
+
+    - name: Test Netlify Build Command
       run: |
         poetry run manage.py netlify_build
