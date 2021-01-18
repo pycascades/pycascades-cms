@@ -1,3 +1,4 @@
+import json
 from django.db import models
 from django.db.models.fields import Field
 
@@ -27,6 +28,21 @@ class PretalxSchedule(Page):
         FieldPanel("widget_embed_code"),
     ]
 
+    def get_context(self, request):
+        context = super().get_context(request)
+
+        context['talk_map'] = self.get_talk_pretalx_map()
+        return context
+
+    def get_talk_pretalx_map(self):
+        talk_map = {}
+        talks = Talk.objects.all()
+        for talk in talks:
+            talk_map[talk.external_id] = talk.url
+        return json.dumps(talk_map)
+
+
+
 
 class TalkList(Page):
     def get_published_speakers(self):
@@ -46,6 +62,8 @@ class Talk(Page):
     start_time = models.DateTimeField(blank=True, null=True)
     end_time = models.DateTimeField(blank=True, null=True)
 
+    external_id = models.CharField(blank=True, max_length=255)
+
     content_panels = [
         FieldPanel("title"),
         FieldPanel("abstract"),
@@ -64,6 +82,7 @@ class Talk(Page):
             ],
             heading="Time Slot",
         ),
+        FieldPanel("external_id"),
     ]
 
     def __str__(self):
