@@ -171,7 +171,10 @@ WAGTAIL_SITE_NAME = "pycascades"
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = "http://example.com"
 
-BAKERY_VIEWS = ("wagtailbakery.views.AllPublishedPagesView",)
+BAKERY_VIEWS = (
+    "wagtailbakery.views.AllPublishedPagesView",
+    "pycascades.views.Buildable404View",
+)
 BUILD_DIR = f"{os.getcwd()}/_build"
 
 
