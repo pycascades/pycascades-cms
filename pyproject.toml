@@ -6,6 +6,9 @@ authors = ["Seb Vetter <seb@pycascades.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
+# The Python version here is specific because this
+# is how Heroku determines the Python version
+# usually defined in the runtime.txt.
 python = "3.9.0"
 wagtail = "^2.11.3"
 wagtail-bakery = "^0.5.0"
