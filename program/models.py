@@ -46,10 +46,10 @@ class PretalxSchedule(Page):
 
 class TalkList(Page):
     def get_published_speakers(self):
-        return Speaker.objects.all().order_by("talk__title")
+        return Speaker.objects.live().order_by("talk__title")
 
     def get_published_talks(self):
-        return Talk.objects.all().order_by("start_time", "title")
+        return Talk.objects.live().order_by("start_time", "title")
 
 
 @register_snippet
