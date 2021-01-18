@@ -30,4 +30,5 @@ jobs:
 
     - name: Test Netlify Build Command
       run: |
+        poetry run python manage.py migrate
         poetry run python manage.py netlify_build
