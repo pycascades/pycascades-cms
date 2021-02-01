@@ -66,6 +66,11 @@
         rewriteLinks(selector)
       });
 
+      // Or wait for linear schedule to load for smaller devices
+      checkShadowElement('.c-linear-schedule').then((selector) => {
+        rewriteLinks(selector)
+      });
+
       // A few talks need to span across tracks so we override grid-row-end or grid-row-start
       // We do that by injecting out own css inside pretalx schedule
       var style = document.createElement('style')
