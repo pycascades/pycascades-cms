@@ -74,6 +74,7 @@ class SponsorTier(models.Model):
 
     panels = [
         FieldPanel("name"),
+        FieldPanel("slug"),
         FieldPanel("type"),
     ]
 
