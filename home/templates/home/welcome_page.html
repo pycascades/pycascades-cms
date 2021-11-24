@@ -5,6 +5,11 @@
   <div du-parallax="du-parallax" y="animator" class="background">
     {% image page.background original as bg_photo %}
     <div ff-bg="{{ bg_photo.url }}" class="image bg-cover"></div>
+    <div class="image-attribution">
+      {% if page.background_attribution %}
+        Header photo © {{ page.background_attribution | safe }}
+      {% endif %}
+    </div>
   </div>
   <div class="overlay"></div>
   <div class="main vcontainer">
