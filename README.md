@@ -9,6 +9,8 @@ We are using [Poetry](https://python-poetry.org/) for local development. This ma
 
 Make sure that you have Poetry running and configured to use a version of Python 3.x. The Python version required is specified by Poetry in the `pyproject.toml` file.
 
+We also use [`just`](https://github.com/casey/just) as our command runner.
+
 ### Install Poetry Environment
 
 ```
@@ -17,9 +19,14 @@ $ poetry install
 
 ## Setting up via Docker
 
-Build it, bring it up and enter the app container.
+Build it and launch the app:
 ```
-make up && make enter
+just up
+```
+
+On a first launch, you will need to run the migrations:
+```
+just migrate
 ```
 
 From here you can proceed to running the CMS as per below instructions.
