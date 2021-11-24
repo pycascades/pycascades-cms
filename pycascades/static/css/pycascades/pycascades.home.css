@@ -44,7 +44,8 @@ body.home #intro .image-attribution {
     top: 1rem;
     left: 1rem;
     font-size: 1.2rem;
-    color: #98D1D6;
+    color: white;
+    font-weight: bold;
     text-align: left;
     left: 1rem;
     /* Match chevron height */
