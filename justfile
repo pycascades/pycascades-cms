@@ -36,5 +36,5 @@ run *args:
     docker-compose run --rm app {{ args }}
 
 # Migrate the database
-migrate:
-    @just run poetry run python manage.py migrate
+manage *args:
+    @just run poetry run python manage.py {{ args }}
