@@ -38,5 +38,5 @@ $ ./manage.py runserver
 Alternatively you can also use the run command:
 
 ```
-$ poetry run manage.py runserver
+$ poetry run ./manage.py runserver
 ```

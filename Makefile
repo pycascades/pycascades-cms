@@ -18,6 +18,14 @@ start: ## Start the full set of containers
 stop: ## Stop the container
 	docker-compose -p pycascades stop
 
+.PHONY: down
+down: ## Stop & remove the container
+	docker-compose -p pycascades down
+
 .PHONY: enter
 enter: ## Enter the running container
 	docker-compose -p pycascades exec app /bin/bash
+
+.PHONY: run
+run: ## Run the webserver
+	docker-compose -p pycascades run --rm app poetry run python manage.py runserver
