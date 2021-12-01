@@ -47,3 +47,11 @@ Alternatively you can also use the run command:
 ```
 $ poetry run ./manage.py runserver
 ```
+
+## Heroku
+
+In order to set Heroku up locally, run:
+
+```
+$ heroku git:remote -a pycascades-cms
+```
