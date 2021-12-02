@@ -9,3 +9,5 @@ staticfiles/
 
 _build/
 .vscode/
+
+.idea/

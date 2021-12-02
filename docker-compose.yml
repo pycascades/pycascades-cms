@@ -2,13 +2,13 @@ version: '3'
 services:
   app:
     build:
-      context: ./
+      context: .
     container_name: pycascades
     image: pycascades/cms
     ports:
-      - "127.0.0.1:8000:8000"
+      - "8000:8000"
     volumes:
       - .:/app
-    command: /bin/bash
+    command: poetry run python manage.py runserver 0.0.0.0:8000
     tty: true
     stdin_open: true

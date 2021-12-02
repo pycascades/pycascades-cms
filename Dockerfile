@@ -1,4 +1,4 @@
-FROM python:3.9.0-slim-buster
+FROM python:3.9-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
@@ -7,7 +7,7 @@ ENV PYTHONUNBUFFERED=1
 RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-recommends \
     build-essential \
     libpq-dev \
-    libmariadbclient-dev \
+    libmariadb-dev \
     libjpeg62-turbo-dev \
     zlib1g-dev \
     libwebp-dev \
