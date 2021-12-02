@@ -27,6 +27,9 @@ class HomePage(Page):
         on_delete=models.SET_NULL,
         related_name="+",
     )
+    background_attribution = models.TextField(
+        blank=True, verbose_name="Background image attribution"
+    )
 
     custom_template_name = models.CharField(max_length=500, blank=True)
 
@@ -42,6 +45,7 @@ class HomePage(Page):
             [
                 ImageChooserPanel("cover_logo"),
                 ImageChooserPanel("background"),
+                FieldPanel("background_attribution"),
             ]
         ),
         FieldPanel("custom_template_name"),

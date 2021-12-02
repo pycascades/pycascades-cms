@@ -26,7 +26,7 @@ just up
 
 On a first launch, you will need to run the migrations:
 ```
-just migrate
+just manage migrate
 ```
 
 From here you can proceed to running the CMS as per below instructions.
