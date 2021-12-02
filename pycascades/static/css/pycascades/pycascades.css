@@ -64,7 +64,7 @@ footer .sponsor-logos-footer a img {
 
 /* Prevent side scrolling */
 #page {
-    width: 100vw;
+    width: 100%;
     overflow-x: hidden;
 }
 
