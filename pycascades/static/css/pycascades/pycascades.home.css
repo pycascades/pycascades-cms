@@ -47,7 +47,6 @@ body.home #intro .image-attribution {
     color: white;
     font-weight: bold;
     text-align: left;
-    left: 1rem;
     /* Match chevron height */
     margin-bottom: -24px;
 }
@@ -55,6 +54,10 @@ body.home #intro .image-attribution {
 body.home #intro .image-attribution a {
     color: #98D1D6;
     text-decoration: none;
+}
+
+body.home #welcome-intro-content a {
+    color: #1ab3b8;
 }
 
 body.home p.dates {

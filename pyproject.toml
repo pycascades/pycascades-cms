@@ -9,6 +9,8 @@ license = "MIT"
 # The Python version here is specific because this
 # is how Heroku determines the Python version
 # usually defined in the runtime.txt.
+# NOTE: THIS MUST BE PINNED! If you change it here, also change it in
+# the GitHub actions and the Dockerfile.
 python = "3.9.7"
 wagtail = "^2.11.3"
 wagtail-bakery = "^0.5.0"
