@@ -714,7 +714,8 @@ footer .links li a:hover {
 
 #sponsors .sponsor-logos .item.community .logo,
 #sponsors .sponsor-logos .item.supporting .logo,
-#sponsors .sponsor-logos .item.supporting_npo .logo {
+#sponsors .sponsor-logos .item.supporting_npo .logo,
+#sponsors .sponsor-logos .item.publishing .logo {
     width: 150px;
     height: 90px;
 }
@@ -786,7 +787,8 @@ footer .links li a:hover {
 
     #sponsors .sponsor-logos .item.community .logo,
     #sponsors .sponsor-logos .item.supporting .logo,
-    #sponsors .sponsor-logos .item.supporting_npo .logo {
+    #sponsors .sponsor-logos .item.supporting_npo .logo,
+    #sponsors .sponsor-logos .item.publishing .logo {
         height: 90px;
     }
 
