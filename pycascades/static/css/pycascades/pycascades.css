@@ -853,6 +853,6 @@ img.accessibility-map {
 
 /* Fix embeds so they aren't tiny */
 iframe {
-    width: 70vw;
-    height: 40vw;
+    width: calc(100vw / 2);
+    height: calc((100vw / 2) * 0.5625);
 }
