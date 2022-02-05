@@ -181,5 +181,5 @@ BUILD_DIR = f"{os.getcwd()}/_build"
 
 TWITTER_URL = "https://twitter.com/pycascades"
 INSTAGRAM_URL = "https://instagram.com/pycascades"
-SLACK_URL = "https://join.slack.com/t/pycascades/shared_invite/enQtMjkzMzA3MTAwNzM2LTY2ZjQxYWM0MzNiZmM4NzNkMzQ2ODM3OGJmZDU4NWJhMjRiZWM1ZTMyMmYyMDAyMjhiZTQwNzRiNmU3NGQ3Y2U"
+SLACK_URL = "https://join.slack.com/t/pycascades/shared_invite/zt-131a11r39-P2BkCVYvlXBplG49lJuXOg"
 GOOGLE_ANALYTICS_ID = "UA-120134614-1"
