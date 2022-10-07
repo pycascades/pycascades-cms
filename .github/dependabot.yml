@@ -12,5 +12,6 @@ updates:
     # Check for updates once a month
     schedule:
       interval: monthly
+    open-pull-requests-limit: 10
     labels:
       - dependencies
