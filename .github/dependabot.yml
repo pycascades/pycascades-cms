@@ -1,0 +1,17 @@
+#################################
+# Dependabot Configuration File #
+#################################
+
+# current Github-native version of Dependabot
+version: 2
+
+updates:
+  # Enable version updates for Python libraries in `poetry.lock`
+  - package-ecosystem: pip
+    directory: /
+    # Check for updates once a month
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 10
+    labels:
+      - dependencies
