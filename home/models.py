@@ -2,7 +2,6 @@ from django.db import models
 
 from wagtail.core.models import Page
 from wagtail.images.models import Image
-from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
 from wagtail.snippets.models import register_snippet
@@ -43,8 +42,8 @@ class HomePage(Page):
         FieldPanel("intro_content"),
         MultiFieldPanel(
             [
-                ImageChooserPanel("cover_logo"),
-                ImageChooserPanel("background"),
+                FieldPanel("cover_logo"),
+                FieldPanel("background"),
                 FieldPanel("background_attribution"),
             ]
         ),
