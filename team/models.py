@@ -2,7 +2,6 @@ from django.db import models
 from django.db.models.fields import EmailField
 from wagtail.core.models import Page
 
-from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
 from wagtail.snippets.models import register_snippet
@@ -55,7 +54,7 @@ class Organizer(models.Model):
                 FieldPanel("twitter"),
             ]
         ),
-        ImageChooserPanel("headshot"),
+        FieldPanel("headshot"),
     ]
 
     def __str__(self):

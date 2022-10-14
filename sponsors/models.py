@@ -1,9 +1,7 @@
 from django.db import models
 
-from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
-from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.snippets.models import register_snippet
 
 
@@ -43,14 +41,14 @@ class Sponsor(models.Model):
 
     panels = [
         FieldPanel("name"),
-        SnippetChooserPanel("tier"),
+        FieldPanel("tier"),
         FieldPanel("website"),
         FieldPanel("description"),
         FieldPanel("sign_date"),
         MultiFieldPanel(
             [
-                ImageChooserPanel("logo"),
-                ImageChooserPanel("logo_dark_background"),
+                FieldPanel("logo"),
+                FieldPanel("logo_dark_background"),
             ]
         ),
     ]

@@ -1,16 +1,13 @@
 import json
 from django.db import models
-from django.db.models.fields import Field
 
 from modelcluster.models import ClusterableModel
 from modelcluster.fields import ParentalKey
 
 from wagtail.core.models import Page, Orderable
 from wagtail.images.models import Image
-from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel
-from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.snippets.models import register_snippet
 
 
@@ -110,7 +107,7 @@ class Speaker(Orderable):
     panels = [
         FieldPanel("name"),
         FieldPanel("bio"),
-        ImageChooserPanel("headshot"),
+        FieldPanel("headshot"),
         MultiFieldPanel(
             [
                 FieldPanel("twitter_handle"),

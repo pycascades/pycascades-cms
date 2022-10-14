@@ -1,18 +1,13 @@
 from django.db import models
-from django.db.models.fields import Field
 from django.template.defaultfilters import slugify
 
 
 from modelcluster.models import ClusterableModel
-from modelcluster.fields import ParentalKey
 
 from wagtail.core.models import Page, Orderable
 from wagtail.images.models import Image
-from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.core.fields import RichTextField
-from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel
-from wagtail.snippets.edit_handlers import SnippetChooserPanel
-from wagtail.snippets.models import register_snippet
+from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
 
 
 class JobOverview(Page):
@@ -32,7 +27,7 @@ class Job(Page):
 
     content_panels = Page.content_panels + [
         FieldPanel("description"),
-        SnippetChooserPanel("sponsor"),
+        FieldPanel("sponsor"),
         FieldPanel("location"),
         MultiFieldPanel(
             [
