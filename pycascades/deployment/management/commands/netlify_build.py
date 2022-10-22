@@ -51,7 +51,7 @@ class Command(build.Command):
         try:
             bucket = default_storage.bucket
         except AttributeError:
-            print("this is not an S3 storage")
+            print("S3 storage unavailable, deferring to default bakery storage")
             super().build_media()
             return
 
