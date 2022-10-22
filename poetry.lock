@@ -168,16 +168,16 @@ Django = ">3.2"
 
 [[package]]
 name = "Django"
-version = "3.2.16"
-description = "A high-level Python Web framework that encourages rapid development and clean, pragmatic design."
+version = "4.1.2"
+description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
 category = "main"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.8"
 
 [package.dependencies]
-asgiref = ">=3.3.2,<4"
-pytz = "*"
+asgiref = ">=3.5.2,<4"
 sqlparse = ">=0.2.2"
+tzdata = {version = "*", markers = "sys_platform == \"win32\""}
 
 [package.extras]
 argon2 = ["argon2-cffi (>=19.1.0)"]
@@ -197,7 +197,7 @@ webassets = ">=2.0"
 
 [[package]]
 name = "django-bakery"
-version = "0.12.7"
+version = "0.13.1"
 description = "A set of helpers for baking your Django site out as flat files"
 category = "main"
 optional = false
@@ -733,6 +733,14 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "tzdata"
+version = "2022.5"
+description = "Provider of IANA time zone data"
+category = "main"
+optional = false
+python-versions = ">=2"
+
+[[package]]
 name = "urllib3"
 version = "1.26.12"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
@@ -797,17 +805,24 @@ testing = ["Jinja2 (>=3.0,<3.2)", "azure-mgmt-cdn (>=5.1,<6.0)", "azure-mgmt-fro
 [[package]]
 name = "wagtail-bakery"
 version = "0.5.0"
-description = "A set of helpers for baking your Django Wagtail site out as flat files."
+description = ""
 category = "main"
 optional = false
 python-versions = "*"
+develop = false
 
 [package.dependencies]
-django-bakery = ">=0.12.7,<0.13.0"
-wagtail = ">=2.10"
+django-bakery = ">=0.13.1,<0.14.0"
+wagtail = ">=2.15"
 
 [package.extras]
 test = ["factory-boy (<3)", "flake8", "isort", "pytest", "pytest-cov", "pytest-django"]
+
+[package.source]
+type = "git"
+url = "https://github.com/Stormheg/wagtail-bakery.git"
+reference = "chore/django-4x-compat"
+resolved_reference = "1be6eceb1721b67a0e29775d098cd8551a97cfcf"
 
 [[package]]
 name = "webassets"
@@ -961,16 +976,16 @@ dj-database-url = [
     {file = "dj_database_url-1.0.0-py3-none-any.whl", hash = "sha256:cd354a3b7a9136d78d64c17b2aec369e2ae5616fbca6bfbe435ef15bb372ce39"},
 ]
 Django = [
-    {file = "Django-3.2.16-py3-none-any.whl", hash = "sha256:18ba8efa36b69cfcd4b670d0fa187c6fe7506596f0ababe580e16909bcdec121"},
-    {file = "Django-3.2.16.tar.gz", hash = "sha256:3adc285124244724a394fa9b9839cc8cd116faf7d159554c43ecdaa8cdf0b94d"},
+    {file = "Django-4.1.2-py3-none-any.whl", hash = "sha256:26dc24f99c8956374a054bcbf58aab8dc0cad2e6ac82b0fe036b752c00eee793"},
+    {file = "Django-4.1.2.tar.gz", hash = "sha256:b8d843714810ab88d59344507d4447be8b2cf12a49031363b6eed9f1b9b2280f"},
 ]
 django-assets = [
     {file = "django-assets-2.0.tar.gz", hash = "sha256:8abb81e66b4db602bb7b5e5d1f1b5c6511c3e7d8d4804be50bbb77e5ce898639"},
     {file = "django_assets-2.0-py3-none-any.whl", hash = "sha256:3e4267a453bb6a30a4bcfb4f971a6876a542b5f500167afda892973335c8ac60"},
 ]
 django-bakery = [
-    {file = "django-bakery-0.12.7.tar.gz", hash = "sha256:48156dbd9ddb762bef4352350a5f43744740529148fd70598120d8d2ae5e273c"},
-    {file = "django_bakery-0.12.7-py2.py3-none-any.whl", hash = "sha256:9eb91d1a65ecc0ba08c58ef091130b7daa012e4a1e30b4c3960ea36d9477fcef"},
+    {file = "django-bakery-0.13.1.tar.gz", hash = "sha256:b0953de5e34b195b54cdb1d4fabb27b82be7d86b91885090dd4e4c2914a3b435"},
+    {file = "django_bakery-0.13.1-py2.py3-none-any.whl", hash = "sha256:2180712ec1545fb280747a9aa4c874167ba2d72ec8b9fa0caabfc948ffded680"},
 ]
 django-filter = [
     {file = "django-filter-22.1.tar.gz", hash = "sha256:ed473b76e84f7e83b2511bb2050c3efb36d135207d0128dfe3ae4b36e3594ba5"},
@@ -1245,6 +1260,10 @@ tomli = [
     {file = "tomli-2.0.1-py3-none-any.whl", hash = "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc"},
     {file = "tomli-2.0.1.tar.gz", hash = "sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"},
 ]
+tzdata = [
+    {file = "tzdata-2022.5-py2.py3-none-any.whl", hash = "sha256:323161b22b7802fdc78f20ca5f6073639c64f1a7227c40cd3e19fd1d0ce6650a"},
+    {file = "tzdata-2022.5.tar.gz", hash = "sha256:e15b2b3005e2546108af42a0eb4ccab4d9e225e2dfbf4f77aad50c70a4b1f3ab"},
+]
 urllib3 = [
     {file = "urllib3-1.26.12-py2.py3-none-any.whl", hash = "sha256:b930dd878d5a8afb066a637fbb35144fe7901e3b209d1cd4f524bd0e9deee997"},
     {file = "urllib3-1.26.12.tar.gz", hash = "sha256:3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"},
@@ -1257,9 +1276,7 @@ wagtail = [
     {file = "wagtail-4.0.4-py3-none-any.whl", hash = "sha256:43b35e8e29bcc83a3ddf60f08e8c22fea1e819f338bcba73a4b290771233809a"},
     {file = "wagtail-4.0.4.tar.gz", hash = "sha256:8799c7550cc033c8e85aeeaf6f91b5343d7dee72fecd5d4093499af9d3aeaa1d"},
 ]
-wagtail-bakery = [
-    {file = "wagtail-bakery-0.5.0.tar.gz", hash = "sha256:6a8fd0d4b8aaaa40249a54ece058462065fc250b4c9deee743d63be6aa18acee"},
-]
+wagtail-bakery = []
 webassets = [
     {file = "webassets-2.0-py3-none-any.whl", hash = "sha256:a31a55147752ba1b3dc07dee0ad8c8efff274464e08bbdb88c1fd59ffd552724"},
     {file = "webassets-2.0.tar.gz", hash = "sha256:167132337677c8cedc9705090f6d48da3fb262c8e0b2773b29f3352f050181cd"},

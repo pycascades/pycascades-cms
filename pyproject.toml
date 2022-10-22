@@ -12,9 +12,11 @@ license = "MIT"
 # NOTE: THIS MUST BE PINNED! If you change it here, also change it in
 # the GitHub actions and the Dockerfile.
 python = "3.10.4"
-django = "^3.2.9"  # pinning this for now
+django = "^4.1.2"
 wagtail = "^4.0.2"
-wagtail-bakery = "^0.5.0"
+# TODO: Update this once this PR is merged and released
+# https://github.com/wagtail/wagtail-bakery/pull/73
+wagtail-bakery = {git = "https://github.com/Stormheg/wagtail-bakery.git", branch = "chore/django-4x-compat"}
 gunicorn = "^20.0.4"
 django-heroku = "^0.3.1"
 pyjade = "^4.0.0"
