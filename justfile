@@ -4,6 +4,14 @@ set dotenv-load := false
 default:
   @just --list --unsorted
 
+# Install dependencies into the current environment
+install:
+    poetry install
+    poetry run pre-commit install
+
+# Run pre-commit on all files
+lint:
+    poetry run pre-commit run --all-files
 
 # Build all (or specified) container(s)
 build service="":
