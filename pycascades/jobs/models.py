@@ -1,13 +1,8 @@
 from django.db import models
 from django.template.defaultfilters import slugify
-
-
-from modelcluster.models import ClusterableModel
-
-from wagtail.core.models import Page, Orderable
-from wagtail.images.models import Image
-from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
+from wagtail.core.fields import RichTextField
+from wagtail.core.models import Page
 
 
 class JobOverview(Page):

@@ -1,7 +1,8 @@
 import json
+
 from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import Deployment
 from .redirects import generate_redirect_lines
@@ -9,7 +10,7 @@ from .redirects import generate_redirect_lines
 
 @csrf_exempt
 def success_hook(request):
-    """ Handle incoming webhook from Netlify, to record deployment completion """
+    """Handle incoming webhook from Netlify, to record deployment completion"""
     body_unicode = request.body.decode("utf-8")
     payload = json.loads(body_unicode)
     # get the first deployment without a Netlify ID

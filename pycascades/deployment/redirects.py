@@ -1,7 +1,6 @@
 import os
 
 from django.conf import settings
-
 from wagtail.contrib.redirects.models import Redirect
 
 
@@ -12,9 +11,7 @@ def write_redirects_to_netlify_file(filename="_redirects"):
     redirects_filename = os.path.join(settings.BUILD_DIR, filename)
     redirect_lines = generate_redirect_lines()
 
-    lines = ["# Redirects from what the browser requests to what we serve"] + redirect_lines
-
-    with open(redirects_filename, "w") as outfile: 
+    with open(redirects_filename, "w") as outfile:
         outfile.write("\n".join(redirect_lines))
 
 

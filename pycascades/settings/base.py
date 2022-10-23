@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
@@ -103,7 +104,7 @@ DATABASES = {
         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
 }
-DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 
 # Password validation
@@ -111,7 +112,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",  # noqa: E501
     },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
@@ -154,7 +155,7 @@ STATICFILES_DIRS = [
 
 # ManifestStaticFilesStorage is recommended in production, to prevent outdated
 # JavaScript / CSS assets being served from cache (e.g. after a Wagtail upgrade).
-# See https://docs.djangoproject.com/en/3.1/ref/contrib/staticfiles/#manifeststaticfilesstorage
+# See https://docs.djangoproject.com/en/3.1/ref/contrib/staticfiles/#manifeststaticfilesstorage  # noqa: E501
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
@@ -182,5 +183,5 @@ BUILD_DIR = f"{os.getcwd()}/_build"
 
 TWITTER_URL = "https://twitter.com/pycascades"
 INSTAGRAM_URL = "https://instagram.com/pycascades"
-SLACK_URL = "https://join.slack.com/t/pycascades/shared_invite/zt-131a11r39-P2BkCVYvlXBplG49lJuXOg"
+SLACK_URL = "https://join.slack.com/t/pycascades/shared_invite/zt-131a11r39-P2BkCVYvlXBplG49lJuXOg"  # noqa: E501
 GOOGLE_ANALYTICS_ID = "UA-120134614-1"

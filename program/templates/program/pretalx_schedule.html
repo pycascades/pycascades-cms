@@ -18,8 +18,8 @@
     {{ page.widget_head_code|safe }}
 
   <script type="text/javascript">
- 
-    // Pretalx Schedule tag which is inside shadow root 
+
+    // Pretalx Schedule tag which is inside shadow root
     const PRETALX = document.querySelector("pretalx-schedule").shadowRoot;
 
     const TALK_MAP = JSON.parse('{{ talk_map | escapejs }}');
@@ -30,11 +30,11 @@
       while ( PRETALX.querySelector(selector) === null) {
         await new Promise( resolve =>  requestAnimationFrame(resolve) )
       }
-      return PRETALX.querySelector(selector); 
+      return PRETALX.querySelector(selector);
     };
 
     // Rewrite pretalx links to point to out website instead
-    function rewriteLinks(selector) { 
+    function rewriteLinks(selector) {
       // Find each element that starts with the link we need
       var els = selector.querySelectorAll("a[href^='https://pretalx.com/pycascades-2021/talk/']");
 

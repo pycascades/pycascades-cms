@@ -6,26 +6,34 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('jobs', '0003_job_sponsor'),
+        ("jobs", "0003_job_sponsor"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Location',
+            name="Location",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=300)),
-                ('state_or_province', models.CharField(blank=True, max_length=200)),
-                ('country', models.CharField(blank=True, max_length=200)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=300)),
+                ("state_or_province", models.CharField(blank=True, max_length=200)),
+                ("country", models.CharField(blank=True, max_length=200)),
             ],
         ),
         migrations.RemoveField(
-            model_name='job',
-            name='location',
+            model_name="job",
+            name="location",
         ),
         migrations.AddField(
-            model_name='job',
-            name='locations',
-            field=models.ManyToManyField(related_name='jobs', to='jobs.Location'),
+            model_name="job",
+            name="locations",
+            field=models.ManyToManyField(related_name="jobs", to="jobs.Location"),
         ),
     ]

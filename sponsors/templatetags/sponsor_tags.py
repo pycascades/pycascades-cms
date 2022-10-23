@@ -1,5 +1,7 @@
 from django import template
+
 from sponsors.models import Sponsor, SponsorTier
+
 
 register = template.Library()
 

@@ -22,4 +22,4 @@ WORKDIR /app
 # Install the project requirements.
 COPY poetry.lock poetry.lock
 COPY pyproject.toml pyproject.toml
-RUN poetry install --no-interaction --no-ansi 
+RUN poetry install --no-interaction --no-ansi

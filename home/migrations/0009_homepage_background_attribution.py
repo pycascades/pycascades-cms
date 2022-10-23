@@ -6,13 +6,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0008_homepage_background'),
+        ("home", "0008_homepage_background"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='homepage',
-            name='background_attribution',
-            field=models.TextField(blank=True, verbose_name='Background image attribution'),
+            model_name="homepage",
+            name="background_attribution",
+            field=models.TextField(
+                blank=True, verbose_name="Background image attribution"
+            ),
         ),
     ]

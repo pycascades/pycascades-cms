@@ -1,13 +1,10 @@
 import json
+
 from django.db import models
-
-from modelcluster.models import ClusterableModel
 from modelcluster.fields import ParentalKey
-
-from wagtail.core.models import Page, Orderable
-from wagtail.images.models import Image
+from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
 from wagtail.core.fields import RichTextField
-from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel
+from wagtail.core.models import Orderable, Page
 from wagtail.snippets.models import register_snippet
 
 
@@ -28,7 +25,7 @@ class PretalxSchedule(Page):
     def get_context(self, request):
         context = super().get_context(request)
 
-        context['talk_map'] = self.get_talk_pretalx_map()
+        context["talk_map"] = self.get_talk_pretalx_map()
         return context
 
     def get_talk_pretalx_map(self):
@@ -37,8 +34,6 @@ class PretalxSchedule(Page):
         for talk in talks:
             talk_map[talk.external_id] = talk.url
         return json.dumps(talk_map)
-
-
 
 
 class TalkList(Page):
@@ -118,4 +113,3 @@ class Speaker(Orderable):
 
     def __str__(self):
         return f"{self.name}"
-
