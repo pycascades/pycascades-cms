@@ -19,6 +19,7 @@ class NetlifyConfiguration(models.Model):
     name = models.CharField(max_length=30)
     netlify_id = models.CharField(max_length=100)
     api_token = models.CharField(max_length=200, default="")
+    active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
@@ -38,6 +39,7 @@ class Deployment(models.Model):
         related_name="deploys",
         null=True,
         on_delete=models.SET_NULL,
+        limit_choices_to={"active": True},
     )
     builder = models.CharField(
         max_length=100, choices=BUILD_CHOICES, default=NETLIFY_BUILD
