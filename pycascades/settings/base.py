@@ -171,7 +171,7 @@ WAGTAIL_SITE_NAME = "pycascades"
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-WAGTAILADMIN_BASE_URL = "http://example.com"
+WAGTAILADMIN_BASE_URL = "https://pycascades-cms.herokuapp.com"
 
 
 BAKERY_VIEWS = (
@@ -181,7 +181,11 @@ BAKERY_VIEWS = (
 BUILD_DIR = f"{os.getcwd()}/_build"
 
 
+# Socials info
 TWITTER_URL = "https://twitter.com/pycascades"
 INSTAGRAM_URL = "https://instagram.com/pycascades"
 SLACK_URL = "https://join.slack.com/t/pycascades/shared_invite/zt-131a11r39-P2BkCVYvlXBplG49lJuXOg"  # noqa: E501
 GOOGLE_ANALYTICS_ID = "UA-120134614-1"
+
+# Footer data
+CONFERENCE_YEAR = os.getenv("CONFERENCE_YEAR", 2020)

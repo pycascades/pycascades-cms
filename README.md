@@ -2,6 +2,12 @@
 
 The PyCascades website is deployed as a static website on **Netlify**. We switched in 2021 to using a Wagtail CMS running on Heroku as the **static site generator** to reduce the amount of coding required to make content changes.
 
+## Configuration options
+
+The following environment variables can be used to alter the site.
+
+- `CONFERENCE_YEAR` - The year of the conference (_not_ necessarily the current year)
+
 
 ## Setting up Locally
 
