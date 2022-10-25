@@ -1,11 +1,11 @@
 import os
-import sentry_sdk
-import django_heroku
 
+import django_heroku
+import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
-from pycascades.settings.dev import SECRET_KEY
-from .base import *
+from .base import *  # noqa: F401, F403
+
 
 sentry_sdk.init(
     dsn=os.getenv("SENTRY_DSN"),

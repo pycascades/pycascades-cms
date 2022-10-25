@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('program', '0002_pretalxschedule'),
+        ("program", "0002_pretalxschedule"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='talk',
-            name='external_id',
+            model_name="talk",
+            name="external_id",
             field=models.CharField(blank=True, max_length=255),
         ),
         migrations.AlterField(
-            model_name='pretalxschedule',
-            name='pretalx_event_url',
-            field=models.URLField(blank=True, verbose_name='Pretalx Event URL'),
+            model_name="pretalxschedule",
+            name="pretalx_event_url",
+            field=models.URLField(blank=True, verbose_name="Pretalx Event URL"),
         ),
     ]

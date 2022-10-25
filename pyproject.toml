@@ -25,9 +25,10 @@ cssmin = "^0.2.0"
 jsmin = "^3.0.0"
 pynetlify = "^0.1.1"
 
-
 [tool.poetry.dev-dependencies]
 black = "^22.10"
+pre-commit = "^2.20.0"
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"

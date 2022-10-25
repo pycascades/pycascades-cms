@@ -1,9 +1,7 @@
 from django.db import models
-
-from wagtail.core.models import Page
-from wagtail.images.models import Image
-from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
+from wagtail.core.fields import RichTextField
+from wagtail.core.models import Page
 from wagtail.snippets.models import register_snippet
 
 

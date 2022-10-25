@@ -1,17 +1,10 @@
 import os
 
-from genericpath import exists
-from pycascades.deployment.redirects import write_redirects_to_netlify_file
 from bakery.management.commands import build
-
-from fs import path
-from fs import copy
-
 from django.conf import settings
-from django.core.management.base import CommandError
 from django.core.files.storage import default_storage
-
-from wagtail.contrib.redirects.models import Redirect
+from django.core.management.base import CommandError
+from fs import path
 from wagtail.documents import get_document_model
 
 from ...redirects import write_redirects_to_netlify_file
@@ -65,8 +58,9 @@ class Command(build.Command):
         Document = get_document_model()
         target_dir = path.join(self.fs_name, self.build_dir)
 
-        # Documents managed by Wagtail are handled differently when exposed. We need to make
-        # sure that we creating the correct structure in the /media/ folder for documents.
+        # Documents managed by Wagtail are handled differently when exposed. We need to
+        # make sure that we are creating the correct structure in the /media/
+        # folder for documents.
         for doc in Document.objects.all():
             filename = f"{target_dir}/{doc.url}"
             if not os.path.exists(os.path.dirname(filename)):
@@ -98,5 +92,5 @@ class Command(build.Command):
         """
         if not hasattr(settings, "BUILD_DIR"):
             raise CommandError("BUILD_DIR is not defined in settings")
-        
+
         write_redirects_to_netlify_file()

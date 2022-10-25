@@ -1,5 +1,7 @@
 from django import template
+
 from home.models import CornerBanner
+
 
 register = template.Library()
 

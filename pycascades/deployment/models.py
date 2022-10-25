@@ -1,17 +1,11 @@
 import os
 import subprocess
-
 from threading import Thread
-from django.db import models
-from django.core.management import call_command
-from django.db import connection
+
 from django.conf import settings
-from django.utils.module_loading import import_string
+from django.db import connection, models
 from django.db.models import signals
-
 from pynetlify import pynetlify
-
-from wagtail.core.signals import page_published
 from wagtail.admin.edit_handlers import FieldPanel
 
 
@@ -141,7 +135,7 @@ def deploy(sender, instance, **kwargs):
     )
     instance.save()
 
-    Log.objects.create(deploy=instance, message=f"Deployment finished!")
+    Log.objects.create(deploy=instance, message="Deployment finished!")
 
     connection.close()
 

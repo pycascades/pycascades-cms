@@ -1,5 +1,7 @@
 from django import template
+
 from team.models import Organizer
+
 
 register = template.Library()
 

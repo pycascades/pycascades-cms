@@ -5,7 +5,7 @@ The PyCascades website is deployed as a static website on **Netlify**. We switch
 
 ## Setting up Locally
 
-We are using [Poetry](https://python-poetry.org/) for local development. This manages the dependencies in the project file `pyproject.toml` and uses the `poetry.lock` file for pinning. 
+We are using [Poetry](https://python-poetry.org/) for local development. This manages the dependencies in the project file `pyproject.toml` and uses the `poetry.lock` file for pinning.
 
 Make sure that you have Poetry running and configured to use a version of Python 3.x. The Python version required is specified by Poetry in the `pyproject.toml` file.
 
