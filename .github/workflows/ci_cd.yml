@@ -20,6 +20,7 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.10.4
+        cache: poetry
     - name: Run image
       uses: abatilo/actions-poetry@v2.0.0
       with:
@@ -32,6 +33,31 @@ jobs:
       run: |
         poetry run python manage.py migrate
         poetry run python manage.py netlify_build
+
+  test_static_assets:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.10.4
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10.4
+          cache: poetry
+      - name: Run image
+        uses: abatilo/actions-poetry@v2.0.0
+        with:
+          poetry-version: 1.2.1
+      - name: Install dependencies
+        run: |
+          poetry install
+
+      - name: Test Collecting Static Assets
+        run: |
+          poetry run python manage.py migrate
+          poetry run python manage.py collectstatic --noinput
+          poetry run python manage.py assets build
 
   lint:
 
