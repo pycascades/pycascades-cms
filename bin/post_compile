@@ -7,7 +7,7 @@ set -e
 echo "=> Building Static Files..."
 # HOTFIX FOR https://github.com/miracle2k/django-assets/issues/102
 sed -i "s/requires_system_checks = False/requires_system_checks = []/" \
-    "$(poetry show -v 2> /dev/null | head -n1 | cut -d ' ' -f 3)"/lib/python3.10/site-packages/django_assets/management/commands/assets.py
+    /app/.heroku/python/lib/python3.10/site-packages/django_assets/management/commands/assets.py
 python manage.py collectstatic --noinput
 python manage.py assets build
 
