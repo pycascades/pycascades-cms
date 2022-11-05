@@ -23,3 +23,7 @@ WORKDIR /app
 COPY poetry.lock poetry.lock
 COPY pyproject.toml pyproject.toml
 RUN poetry install --no-interaction --no-ansi
+
+# HOTFIX FOR https://github.com/miracle2k/django-assets/issues/102
+RUN sed -i "s/requires_system_checks = False/requires_system_checks = []/" \
+    $(poetry show -v 2> /dev/null | head -n1 | cut -d ' ' -f 3)/lib/python3.10/site-packages/django_assets/management/commands/assets.py
