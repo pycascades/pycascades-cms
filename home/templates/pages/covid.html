@@ -1,0 +1,14 @@
+{% extends "pages/simple_page.html" %}
+{% load wagtailcore_tags %}
+
+{% block content_body %}
+
+<div class="additional-info">
+  <h3>additional covid info</h3>
+  <ul>
+    <li><a href="/about/covid-faq/">COVID FAQ</a></li>
+  </ul>
+</div>
+
+{{ page.content|richtext }}
+{% endblock %}
