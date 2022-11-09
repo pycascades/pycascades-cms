@@ -792,7 +792,7 @@ footer .links li a:hover {
         height: 90px;
     }
 
-    .conduct-violations {
+    .additional-info {
         float: right;
     }
 }
@@ -824,20 +824,20 @@ body.error #main {
     text-align: center;
 }
 
-.conduct-violations {
+.additional-info {
     border-radius: 10px;
     margin: 0 0 4ex 0;
     border: 1px solid #ddd;
 
 }
-.conduct-violations h3 {
+.additional-info h3 {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     background-color: #ddd;
     padding: 1ex;
 }
 
-.conduct-violations ul {
+.additional-info ul {
     padding-left: 2ex;
 }
 
