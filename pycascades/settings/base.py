@@ -184,7 +184,7 @@ BUILD_DIR = f"{os.getcwd()}/_build"
 # Socials info
 TWITTER_URL = "https://twitter.com/pycascades"
 INSTAGRAM_URL = "https://instagram.com/pycascades"
-SLACK_URL = "https://join.slack.com/t/pycascades/shared_invite/zt-131a11r39-P2BkCVYvlXBplG49lJuXOg"  # noqa: E501
+SLACK_URL = "https://join.slack.com/t/pycascades/shared_invite/zt-1l5libchy-RyQi1Kh0PS8DXCfhxhHZhQ"  # noqa: E501
 GOOGLE_ANALYTICS_ID = "UA-120134614-1"
 
 # Footer data
