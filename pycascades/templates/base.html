@@ -28,9 +28,13 @@
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,400,700,900">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico"/>
+
+        <!-- Font-Awesome -->
+        <link rel="stylesheet" href="/static/fontawesome/css/fontawesome.css"/>
+        <link rel="stylesheet" href="/static/fontawesome/css/brands.css"/>
+        <link rel="stylesheet" href="/static/fontawesome/css/solid.css"/>
 
         {# Global stylesheets #}
         {% assets 'pycascades.css' %}
@@ -61,11 +65,11 @@
             <ul class="links">
               <li><a href="/code-of-conduct">Code of Conduct</a>
               </li>
-              <li class="slack"><a href="{{ SLACK_URL }}" target="_blank"><i class="fa fa-slack"></i> PyCascades</a>
+              <li class="slack"><a href="{{ SLACK_URL }}" target="_blank"><i class="fa-brands fa-slack"></i> PyCascades</a>
               </li>
-              <li class="twitter"><a href="{{ TWITTER_URL }}" target="_blank"><i class="fa fa-twitter"></i> PyCascades</a>
+              <li class="twitter"><a href="{{ TWITTER_URL }}" target="_blank"><i class="fa-brands fa-twitter"></i> PyCascades</a>
               </li>
-              <li class="instagram"><a href="{{ INSTAGRAM_URL }}" target="_blank"><i class="fa fa-instagram"></i> PyCascades</a>
+              <li class="instagram"><a href="{{ INSTAGRAM_URL }}" target="_blank"><i class="fa-brands fa-instagram"></i> PyCascades</a>
               </li>
             </ul>
             {% block logos %}

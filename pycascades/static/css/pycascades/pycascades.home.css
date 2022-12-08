@@ -195,7 +195,7 @@ body.home #newsletter .main button {
     }
 }
 
-body.home #newsletter .social .fa {
+body.home #newsletter .social .fa-solid, body.home #newsletter .social .fa-brands {
     color: black;
     font-size: 30px;
     padding-top: 10px;

@@ -81,7 +81,7 @@ body.talks.talk-detail .headshot.loaded {
 body.talks.talk-detail .contact {
     text-align: left;
 }
-body.talks.talk-detail .contact .fa {
+body.talks.talk-detail .contact .fa-solid, body.talks.talk-detail .contact .fa-brands {
     display: inline-block;
     width: 2em;
 }
