@@ -43,7 +43,7 @@ body.about.organizers .contact {
     text-align: center;
     font-size: 0.8em;
 }
-body.about.organizers .contact .fa {
+body.about.organizers .contact .fa-solid, body.about.organizers .contact .fa-brands {
     color: white;
     padding-top: 15px;
     height: 50px;
