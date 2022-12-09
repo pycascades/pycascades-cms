@@ -33,6 +33,7 @@ class Organizer(models.Model):
 
     email = EmailField(blank=True)
     twitter = models.CharField(max_length=255, blank=True)
+    mastodon = models.CharField(max_length=255, blank=True)
 
     headshot = models.ForeignKey(
         "wagtailimages.Image",
@@ -50,7 +51,8 @@ class Organizer(models.Model):
         MultiFieldPanel(
             [
                 FieldPanel("email"),
-                FieldPanel("twitter"),
+                FieldPanel("twitter", heading="Twitter (username only)"),
+                FieldPanel("mastodon", heading="Mastodon (full URL)"),
             ]
         ),
         FieldPanel("headshot"),

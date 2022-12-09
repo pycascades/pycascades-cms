@@ -79,6 +79,15 @@
     </div>
   {% endif %}
 
+  {% if speaker.mastodon %}
+    <div class="mastodon">
+      <a href="https://{{ speaker.mastodon }}" target="_blank">
+        <i class="fa-brands fa-mastodon"></i>
+        {{ speaker.mastodon }}
+      </a>
+    </div>
+  {% endif %}
+
   {% if speaker.instagram %}
       <div class="instagram">
         <a href="https://www.instagram.com/{{ speaker.instagram }}" target="_blank">
@@ -88,7 +97,7 @@
       </div>
   {% endif %}
 
-  {% if page.github %}
+  {% if speaker.github %}
       <div class="github">
         <a href="https://www.github.com/{{ speaker.github }}" target="_blank">
           <i class="fa-brands fa-github"></i>
