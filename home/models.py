@@ -79,3 +79,17 @@ class CornerBanner(models.Model):
 
     def __str__(self):
         return self.text
+
+
+@register_snippet
+class MastodonVerification(models.Model):
+    name = models.CharField(max_length=255)
+    url = models.URLField()
+
+    panels = [
+        FieldPanel("name"),
+        FieldPanel("url"),
+    ]
+
+    def __str__(self):
+        return f"{self.name} ({self.url})"
