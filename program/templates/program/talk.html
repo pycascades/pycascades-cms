@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
+{% load social_tags %}
 
 {% block page_title %}{{ page.title }} &mdash; {{ block.super }}{% endblock %}
 {% block meta_description %}{{ block.super }} {{ page.title }}{% endblock %}
@@ -65,7 +66,7 @@
       <div class="url">
           <a href="{{ speaker.website }}" target="_blank">
             <i class="fa-solid fa-external-link"></i>
-            {{ speaker.website }}
+            {{ speaker.website | remove_scheme_prefix }}
           </a>
       </div>
   {% endif %}
@@ -92,7 +93,7 @@
       <div class="instagram">
         <a href="https://www.instagram.com/{{ speaker.instagram }}" target="_blank">
           <i class="fa-brands fa-instagram"></i>
-          {{ page.instagram }}
+          {{ speaker.instagram }}
         </a>
       </div>
   {% endif %}
@@ -101,7 +102,7 @@
       <div class="github">
         <a href="https://www.github.com/{{ speaker.github }}" target="_blank">
           <i class="fa-brands fa-github"></i>
-          {{ page.github }}
+          {{ speaker.github }}
         </a>
       </div>
   {% endif %}
