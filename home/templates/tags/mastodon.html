@@ -1,6 +1,7 @@
 <!-- Section should not be visible, used to verify Mastodon links -->
+{% load social_tags %}
 <div style="height: 0px;width: 0px;overflow:hidden;">
   {% for account in accounts %}
-    <a rel="me" href="https://{{ account.url }}"></a>
+    <a rel="me" href="https://{{ account.url | remove_scheme_prefix }}"></a>
   {% endfor %}
 </div>
