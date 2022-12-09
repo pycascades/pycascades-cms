@@ -84,7 +84,7 @@ class CornerBanner(models.Model):
 @register_snippet
 class MastodonVerification(models.Model):
     name = models.CharField(max_length=255)
-    url = models.URLField()
+    url = models.CharField(max_length=255)
 
     panels = [
         FieldPanel("name"),
