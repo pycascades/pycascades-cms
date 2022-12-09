@@ -84,7 +84,10 @@ class CornerBanner(models.Model):
 @register_snippet
 class MastodonVerification(models.Model):
     name = models.CharField(max_length=255)
-    url = models.CharField(max_length=255)
+    url = models.CharField(
+        max_length=255,
+        help_text="e.g. fosstodon.org/@pycascades",
+    )
 
     panels = [
         FieldPanel("name"),

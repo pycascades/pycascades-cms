@@ -23,7 +23,13 @@ class Migration(migrations.Migration):
                     ),
                 ),
                 ("name", models.CharField(max_length=255)),
-                ("url", models.CharField(max_length=255)),
+                (
+                    "url",
+                    models.CharField(
+                        max_length=255,
+                        help_text="e.g. fosstodon.org/@pycascades",
+                    ),
+                ),
             ],
         ),
     ]
