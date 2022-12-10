@@ -82,9 +82,9 @@
 
   {% if speaker.mastodon %}
     <div class="mastodon">
-      <a href="https://{{ speaker.mastodon }}" target="_blank">
+      <a href="https://{{ speaker.mastodon | remove_scheme_prefix }}" target="_blank">
         <i class="fa-brands fa-mastodon"></i>
-        {{ speaker.mastodon }}
+        {{ speaker.mastodon | remove_scheme_prefix }}
       </a>
     </div>
   {% endif %}
