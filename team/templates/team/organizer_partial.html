@@ -1,5 +1,6 @@
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
+{% load social_tags %}
 
 <div class="item">
   {% if organizer.headshot %}
@@ -20,6 +21,9 @@
     {% endif %}
     {% if organizer.twitter %}
       <a href="https://www.twitter.com/{{ organizer.twitter }}" target="_blank"><i class="fa-brands fa-2x fa-twitter"></i></a>
+    {% endif %}
+    {% if organizer.mastodon %}
+      <a href="https://{{ organizer.mastodon | remove_scheme_prefix }}" target="_blank"><i class="fa-brands fa-2x fa-mastodon"></i></a>
     {% endif %}
   </div>
 

@@ -95,6 +95,9 @@ class Speaker(Orderable):
     company = models.CharField(max_length=200, blank=True)
 
     twitter_handle = models.CharField(max_length=200, blank=True)
+    mastodon = models.CharField(max_length=200, blank=True)
+    instagram = models.CharField(max_length=200, blank=True)
+    github = models.CharField(max_length=200, blank=True)
     website = models.URLField(blank=True)
 
     bio = RichTextField(blank=True)
@@ -105,7 +108,10 @@ class Speaker(Orderable):
         FieldPanel("headshot"),
         MultiFieldPanel(
             [
-                FieldPanel("twitter_handle"),
+                FieldPanel("twitter_handle", heading="Twitter (username only)"),
+                FieldPanel("instagram", heading="Instagram (username only)"),
+                FieldPanel("github", heading="GitHub (username only)"),
+                FieldPanel("mastodon", heading="Mastodon (full URL)"),
                 FieldPanel("website"),
             ]
         ),
