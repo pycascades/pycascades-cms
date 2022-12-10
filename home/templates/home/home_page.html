@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
+{% load social_tags %}
 
 {% block body_class %}home{% endblock %}
 
 {% block content %}
-    {% include 'home/mastodon.html' %}
+    {% mastodon_verification %}
     {% include 'home/welcome_page.html' %}
 {% endblock content %}
