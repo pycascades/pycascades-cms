@@ -29,18 +29,20 @@
   </script>
 {% endblock %}
 
+{% block body_class %}venue{% endblock %}
+
 {% block content %}
-  <section id="intro">
+  <section id="venue">
     <div du-parallax="du-parallax" y="animator" class="background">
       {% image page.venue_photo original as venue_photo %}
       <div ff-bg="{{ venue_photo.url }}" class="image bg-cover"></div>
-      <div class="image-attribution">
-        {% if page.venue_attribution %}
-          Image credit © {{ page.venue_attribution | safe }}
-        {% endif %}
-      </div>
     </div>
     <div class="overlay"></div>
+    <div class="image-attribution skip-header">
+      {% if page.venue_attribution %}
+        Image credit © {{ page.venue_attribution | safe }}
+      {% endif %}
+    </div>
     <div class="main vcontainer">
       <div class="inner">
         <div class="container">
@@ -65,11 +67,11 @@
     <div du-parallax="du-parallax" y="animator" class="background">
       {% image page.accommodation_photo original as accommodation_photo %}
       <div ff-bg="{{ accommodation_photo.url }}" class="image bg-cover"></div>
-      <div class="image-attribution">
-        {% if page.accommodation_attribution %}
-          Image credit © {{ page.accommodation_attribution | safe }}
-        {% endif %}
-      </div>
+    </div>
+    <div class="image-attribution">
+      {% if page.accommodation_attribution %}
+        Image credit © {{ page.accommodation_attribution | safe }}
+      {% endif %}
     </div>
     <div class="overlay"></div>
     <div class="main vcontainer">

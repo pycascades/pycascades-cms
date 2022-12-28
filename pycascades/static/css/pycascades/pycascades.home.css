@@ -21,7 +21,7 @@ body.home header nav > ul > li.home {
     display: none;
 }
 
-body.home #intro {
+body.home #intro, body.venue {
     color: #FFF;
 }
 body.home #intro .overlay {
@@ -39,21 +39,28 @@ body.home #intro .main .logo {
     }
 }
 
-body.home #intro .image-attribution {
+body .image-attribution {
     position: relative;
     top: 1rem;
     left: 1rem;
     font-size: 1.2rem;
-    color: white;
+    color: #a0a0a0;
     font-weight: bold;
     text-align: left;
-    /* Match chevron height */
-    margin-bottom: -24px;
+    z-index: 10;
 }
 
-body.home #intro .image-attribution a {
-    color: #98D1D6;
-    text-decoration: none;
+body .image-attribution a {
+    color: #a0a0a0 !important;
+    text-decoration: underline;
+}
+
+body.venue .skip-header {
+    top: 7rem;
+}
+
+body.venue .overlay {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
 }
 
 body.home #welcome-intro-content a {
