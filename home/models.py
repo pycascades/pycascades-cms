@@ -60,7 +60,9 @@ class VenuePage(Page):
         related_name="+",
     )
     venue_attribution = models.TextField(
-        blank=True, verbose_name="Venue image attribution"
+        blank=True,
+        verbose_name="Venue image attribution",
+        help_text="HTML allowed",
     )
 
     location_address = RichTextField()
@@ -77,7 +79,9 @@ class VenuePage(Page):
         related_name="+",
     )
     accommodation_attribution = models.TextField(
-        blank=True, verbose_name="Accommodation image attribution"
+        blank=True,
+        verbose_name="Accommodation image attribution",
+        help_text="HTML allowed",
     )
 
     def get_template(self, *args, **kwargs):
