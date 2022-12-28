@@ -51,7 +51,6 @@ class HomePage(Page):
 
 class VenuePage(Page):
 
-    venue_title = models.CharField(max_length=255, blank=True)
     venue_content = RichTextField(blank=True)
     venue_photo = models.ForeignKey(
         "wagtailimages.Image",
@@ -87,7 +86,6 @@ class VenuePage(Page):
     content_panels = Page.content_panels + [
         MultiFieldPanel(
             [
-                FieldPanel("venue_title"),
                 FieldPanel("venue_content"),
                 FieldPanel("venue_photo"),
                 FieldPanel("venue_attribution"),
