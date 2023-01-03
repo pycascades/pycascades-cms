@@ -49,6 +49,70 @@ class HomePage(Page):
     ]
 
 
+class VenuePage(Page):
+
+    venue_content = RichTextField(blank=True)
+    venue_photo = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
+    venue_attribution = models.TextField(
+        blank=True,
+        verbose_name="Venue image attribution",
+        help_text="HTML allowed",
+    )
+
+    location_address = RichTextField()
+    location_lat = models.DecimalField(max_digits=20, decimal_places=17)
+    location_long = models.DecimalField(max_digits=20, decimal_places=17)
+    location_google_maps_url = models.CharField(max_length=500, blank=True)
+
+    accommodation_content = RichTextField(blank=True)
+    accommodation_photo = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
+    accommodation_attribution = models.TextField(
+        blank=True,
+        verbose_name="Accommodation image attribution",
+        help_text="HTML allowed",
+    )
+
+    def get_template(self, *args, **kwargs):
+        return "home/venue_page.html"
+
+    content_panels = Page.content_panels + [
+        MultiFieldPanel(
+            [
+                FieldPanel("venue_content"),
+                FieldPanel("venue_photo"),
+                FieldPanel("venue_attribution"),
+            ]
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel("location_address"),
+                FieldPanel("location_lat"),
+                FieldPanel("location_long"),
+                FieldPanel("location_google_maps_url"),
+            ]
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel("accommodation_content"),
+                FieldPanel("accommodation_photo"),
+                FieldPanel("accommodation_attribution"),
+            ]
+        ),
+    ]
+
+
 class SimplePage(Page):
     content = RichTextField(blank=True)
 
