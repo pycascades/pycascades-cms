@@ -21,13 +21,13 @@ body.venue #main section .main {
 }
 @media (min-width: 750px) {
     body.venue #main section .main {
-        height: 100vh;
+        min-height: 100vh;
         padding: 0;
     }
 }
 
 body.venue #main #map {
-    min-height: 200px;
+    min-height: 100vh;
 }
 
 body.venue #main #map .overlay {
