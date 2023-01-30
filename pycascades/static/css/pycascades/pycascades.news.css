@@ -24,3 +24,7 @@ body.news.posting-list .posting .meta {
 body.news .more {
     text-align: center;
 }
+body.news div.body image {
+    max-width: 100%;
+    height: auto;
+}

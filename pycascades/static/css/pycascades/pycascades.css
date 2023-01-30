@@ -60,6 +60,7 @@ footer .sponsor-logos-footer li {
 footer .sponsor-logos-footer a img {
     width: auto;
     padding: 0 1rem;
+    max-width: 200px;
 }
 
 /* Prevent side scrolling */
