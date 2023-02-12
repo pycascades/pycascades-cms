@@ -365,6 +365,8 @@ header nav {
 }
 
 #main {
+    z-index: 1;
+    position: relative;
 }
 #main > .container {
     margin-top: 120px;
