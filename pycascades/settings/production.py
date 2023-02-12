@@ -31,4 +31,8 @@ AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 AWS_STORAGE_BUCKET_NAME = "pycascades-cms-files"
 AWS_S3_ENDPOINT_URL = "https://sfo2.digitaloceanspaces.com"
 
+# HTTP to HTTPS redirect
+# https://github.com/pycascades/pycascades-cms/issues/46
+SECURE_SSL_REDIRECT = True
+
 django_heroku.settings(locals())
