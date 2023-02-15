@@ -365,7 +365,7 @@ header nav {
 }
 
 #main {
-    z-index: 1;
+    z-index: 0;
     position: relative;
 }
 #main > .container {
