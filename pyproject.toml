@@ -10,7 +10,7 @@ license = "MIT"
 # is how Heroku determines the Python version
 # usually defined in the runtime.txt.
 # NOTE: THIS MUST BE PINNED! If you change it here, also change it in
-# the GitHub actions and the Dockerfile.
+# the GitHub actions, the Dockerfile, and the Heroku config
 python = "3.10.4"
 django = "^4.1.2"
 wagtail = "^4.1"

@@ -7,6 +7,7 @@ The PyCascades website is deployed as a static website on **Netlify**. We switch
 The following environment variables can be used to alter the site.
 
 - `CONFERENCE_YEAR` - The year of the conference (_not_ necessarily the current year)
+- `PYTHON_RUNTIME_VERSION` - The Python version to use for the Heroku app, [based on our buildpack](https://github.com/moneymeets/python-poetry-buildpack#python). This must be updated on Heroku if it is changed in the repo.
 
 
 ## Setting up Locally
