@@ -1166,13 +1166,13 @@ testing = ["Jinja2 (>=3.0,<3.2)", "azure-mgmt-cdn (>=12.0,<13.0)", "azure-mgmt-f
 
 [[package]]
 name = "wagtail-bakery"
-version = "0.7.0"
+version = "0.8.0"
 description = "A set of helpers for baking your Django Wagtail site out as flat files."
 category = "main"
 optional = false
 python-versions = "*"
 files = [
-    {file = "wagtail-bakery-0.7.0.tar.gz", hash = "sha256:c787ddeaec51db4f3d5dcb6947bc31faf84d60a8fae343cbfea6e5e944310edc"},
+    {file = "wagtail-bakery-0.8.0.tar.gz", hash = "sha256:6ed7bfca032ef69daa51267ea820d4a9780620783559122684f92569c1467ebc"},
 ]
 
 [package.dependencies]
@@ -1180,7 +1180,7 @@ django-bakery = ">=0.13.1,<0.14.0"
 wagtail = ">=4.1"
 
 [package.extras]
-test = ["factory-boy (<3)", "flake8", "isort", "pytest", "pytest-cov", "pytest-django"]
+test = ["factory-boy", "flake8", "isort", "pytest", "pytest-cov", "pytest-django"]
 
 [[package]]
 name = "webassets"
@@ -1239,4 +1239,4 @@ testing = ["Pillow (>=6.0.0,<10.0.0)", "Wand (>=0.6,<1.0)", "mock (>=3.0,<4.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "~3.10"
-content-hash = "dc69255f7db418927efa6e18a8fdfa8b2c688451f1978dd168a3cc865faa319e"
+content-hash = "3146a96d2a733735ea18deb43d54fe7facea5c10267bee52fb04b709da77c9a2"
