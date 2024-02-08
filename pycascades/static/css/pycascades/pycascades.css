@@ -723,7 +723,7 @@ footer .links li a:hover {
     height: 90px;
 }
 
-#sponsors .sponsor-logos .item a {
+#sponsors .sponsor-logos .item .logo a {
     display: block;
     width: 100%;
     height: 100%;
