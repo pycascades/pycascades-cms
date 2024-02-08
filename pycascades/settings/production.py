@@ -1,18 +1,9 @@
 import os
 
 import django_heroku
-import sentry_sdk
-from sentry_sdk.integrations.django import DjangoIntegration
 
 from .base import *  # noqa: F401, F403
 
-
-sentry_sdk.init(
-    dsn=os.getenv("SENTRY_DSN"),
-    integrations=[DjangoIntegration()],
-    traces_sample_rate=1.0,
-    send_default_pii=True,
-)
 
 DEBUG = False
 
