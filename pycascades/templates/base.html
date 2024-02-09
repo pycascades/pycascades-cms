@@ -26,9 +26,6 @@
         <meta property="og:url" content="http://www.pycascades.com">
         <meta property="og:description" content="Website for PyCascades {{ CONFERENCE_YEAR }}, a regional Python conference in the Pacific Northwest.">
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,400,700,900">
-
         <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico"/>
 
         <!-- Font-Awesome -->
@@ -95,13 +92,6 @@
         <script>
             var data = {};
             pycascades.start(data);
-        </script>
-        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', '{{ GOOGLE_ANALYTICS_ID }}', 'auto');
-        ga('send', 'pageview');
         </script>
 
         {% block extra_js %}
