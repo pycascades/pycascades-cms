@@ -67,30 +67,4 @@
   <section id="location">
     <div id="map" class="main vcontainer"></div>
   </section>
-  <section id="accommodations">
-    <div du-parallax="du-parallax" y="animator" class="background">
-      {% image page.accommodation_photo original as accommodation_photo %}
-      <div ff-bg="{{ accommodation_photo.url }}" class="image bg-cover"></div>
-    </div>
-    <div class="image-attribution">
-      {% if page.accommodation_attribution %}
-        Image credit © {{ page.accommodation_attribution | safe }}
-      {% endif %}
-    </div>
-    <div class="overlay"></div>
-    <div class="main vcontainer">
-      <div class="inner">
-        <div class="container">
-          <div in-view="in-view" class="row fade-up">
-            <div class="one-half column">
-              <h2>Accommodation</h2>
-            </div>
-            <div class="one-half column">
-              {{ page.accommodation_content | richtext }}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 {% endblock %}
