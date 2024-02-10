@@ -6,7 +6,7 @@ from django.conf import settings
 from django.db import connection, models
 from django.db.models import signals
 from pynetlify import pynetlify
-from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.admin.panels import FieldPanel
 
 
 class NetlifyConfiguration(models.Model):
