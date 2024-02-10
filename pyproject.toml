@@ -31,8 +31,8 @@ pynetlify = "^0.1.1"
 
 
 [tool.poetry.dev-dependencies]
-black = "^23.3"
-pre-commit = "^3.2.2"
+black = "^24.1"
+pre-commit = "^3.6.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
