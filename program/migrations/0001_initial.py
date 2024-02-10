@@ -2,7 +2,7 @@
 
 import django.db.models.deletion
 import modelcluster.fields
-import wagtail.core.fields
+import wagtail.fields
 from django.db import migrations, models
 
 
@@ -30,7 +30,7 @@ class Migration(migrations.Migration):
                         to="wagtailcore.page",
                     ),
                 ),
-                ("abstract", wagtail.core.fields.RichTextField(blank=True)),
+                ("abstract", wagtail.fields.RichTextField(blank=True)),
                 ("slides", models.URLField(blank=True, null=True)),
                 ("video", models.URLField(blank=True, null=True)),
                 ("start_time", models.DateTimeField(blank=True, null=True)),
@@ -81,7 +81,7 @@ class Migration(migrations.Migration):
                 ("company", models.CharField(blank=True, max_length=200)),
                 ("twitter_handle", models.CharField(blank=True, max_length=200)),
                 ("website", models.URLField(blank=True)),
-                ("bio", wagtail.core.fields.RichTextField(blank=True)),
+                ("bio", wagtail.fields.RichTextField(blank=True)),
                 (
                     "headshot",
                     models.ForeignKey(
