@@ -37,7 +37,7 @@ logs service="": up
 
 # Open a shell into the webserver container
 shell: up
-    docker-compose exec /bin/bash
+    docker-compose exec app /bin/bash
 
 # Run a given command using the webserver image
 run *args:
