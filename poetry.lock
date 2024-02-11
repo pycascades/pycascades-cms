@@ -693,6 +693,24 @@ pytz = ">=2020.1"
 six = "*"
 
 [[package]]
+name = "laces"
+version = "0.1.1"
+description = "Django components that know how to render themselves."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "laces-0.1.1-py3-none-any.whl", hash = "sha256:ae2c575b9aaa46154e5518c61c9f86f5a9478f753a51e9c5547c7d275d361242"},
+    {file = "laces-0.1.1.tar.gz", hash = "sha256:e45159c46f6adca33010d34e9af869e57201b70675c6dc088e919b16c89456a4"},
+]
+
+[package.dependencies]
+Django = ">=3.2"
+
+[package.extras]
+dev = ["black (==24.1.1)", "blacken-docs (==1.16.0)", "coverage (==7.3.4)", "django-stubs[compatible-mypy] (==4.2.7)", "flake8 (==7.0.0)", "flake8-bugbear", "flake8-comprehensions", "isort (==5.13.2)", "mypy (==1.7.1)", "pre-commit (==3.4.0)", "tox (==4.12.1)", "tox-gh-actions (==3.2.0)", "types-requests (==2.31.0.20240125)", "virtualenv-pyenv (==0.4.0)"]
+testing = ["coverage (==7.3.4)", "dj-database-url (==2.1.0)"]
+
+[[package]]
 name = "mypy-extensions"
 version = "1.0.0"
 description = "Type system extensions for programs checked with the mypy type checker."
@@ -1252,37 +1270,38 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess
 
 [[package]]
 name = "wagtail"
-version = "5.2.3"
+version = "6.0"
 description = "A Django content management system."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "wagtail-5.2.3-py3-none-any.whl", hash = "sha256:7b186b37ba044fd68c1a3c584ac0d913daa4ea95b95aa4c80412e4a0cb04e563"},
-    {file = "wagtail-5.2.3.tar.gz", hash = "sha256:ad64595124c84c4b00b73b863029a7722e06b4dba17b76177d2f4944f579bca7"},
+    {file = "wagtail-6.0-py3-none-any.whl", hash = "sha256:2df0447c0d3bfc43576aa529cbea78e0dff93f6d25a9097068d24fb8c4fa8ee8"},
+    {file = "wagtail-6.0.tar.gz", hash = "sha256:de03b6bad5527f8423ccb23b2e92ca9ac61bb1f3dc3f2dc97c850db74a251c39"},
 ]
 
 [package.dependencies]
 anyascii = ">=0.1.5"
-beautifulsoup4 = ">=4.8,<4.12"
-Django = ">=3.2,<5.1"
+beautifulsoup4 = ">=4.8,<4.13"
+Django = ">=4.2,<6.0"
 django-filter = ">=23.3,<24"
-django-modelcluster = ">=6.1,<7.0"
+django-modelcluster = ">=6.2.1,<7.0"
 django-permissionedforms = ">=0.1,<1.0"
-django-taggit = ">=2.0,<5.0"
+django-taggit = ">=4.0,<5.1"
 django-treebeard = ">=4.5.1,<5.0"
 djangorestframework = ">=3.11.1,<4.0"
-draftjs-exporter = ">=2.1.5,<3.0"
+draftjs-exporter = ">=2.1.5,<6.0"
 html5lib = ">=0.999,<2"
 l18n = ">=2018.5"
+laces = ">=0.1,<0.2"
 openpyxl = ">=3.0.10,<4.0"
 Pillow = ">=9.1.0,<11.0.0"
 requests = ">=2.11.1,<3.0"
 telepath = ">=0.3.1,<1"
-Willow = {version = ">=1.6.2,<1.7", extras = ["heif"]}
+Willow = {version = ">=1.6.2,<2", extras = ["heif"]}
 
 [package.extras]
-docs = ["Sphinx (>=1.5.2)", "myst-parser (==0.18.1)", "pyenchant (>=3.1.1,<4)", "sphinx-autobuild (>=0.6.0)", "sphinx-copybutton (>=0.5,<1.0)", "sphinx-wagtail-theme (==6.1.1)", "sphinxcontrib-spelling (>=5.4.0,<6)"]
-testing = ["Jinja2 (>=3.0,<3.2)", "azure-mgmt-cdn (>=12.0,<13.0)", "azure-mgmt-frontdoor (>=1.0,<1.1)", "black (==22.3.0)", "boto3 (>=1.28,<2)", "coverage (>=3.7.0)", "curlylint (==0.13.1)", "django-pattern-library (>=0.7,<0.8)", "djhtml (==1.5.2)", "doc8 (==0.8.1)", "factory-boy (>=3.2)", "freezegun (>=0.3.8)", "polib (>=1.1,<2.0)", "python-dateutil (>=2.7)", "pytz (>=2014.7)", "ruff (==0.0.290)", "semgrep (==1.40.0)", "tblib (>=2.0,<3.0)"]
+docs = ["Sphinx (>=1.5.2)", "myst-parser (==2.0.0)", "pyenchant (>=3.1.1,<4)", "sphinx-autobuild (>=0.6.0)", "sphinx-copybutton (>=0.5,<1.0)", "sphinx-wagtail-theme (==6.2.0)", "sphinxcontrib-spelling (>=7,<8)"]
+testing = ["Jinja2 (>=3.0,<3.2)", "azure-mgmt-cdn (>=12.0,<13.0)", "azure-mgmt-frontdoor (>=1.0,<1.1)", "boto3 (>=1.28,<2)", "coverage (>=3.7.0)", "curlylint (==0.13.1)", "django-pattern-library (>=0.7)", "djhtml (==3.0.6)", "doc8 (==0.8.1)", "factory-boy (>=3.2)", "freezegun (>=0.3.8)", "polib (>=1.1,<2.0)", "python-dateutil (>=2.7)", "pytz (>=2014.7)", "ruff (==0.1.5)", "semgrep (==1.40.0)", "tblib (>=2.0,<3.0)"]
 
 [[package]]
 name = "wagtail-bakery"
@@ -1361,4 +1380,4 @@ testing = ["Pillow (>=9.1.0,<11.0.0)", "Wand (>=0.6,<1.0)", "black (==22.3.0)", 
 [metadata]
 lock-version = "2.0"
 python-versions = "3.10.4"
-content-hash = "9e1abc684efdcdf39a92ceb76cc32128cd496645b4612881ef12ca7aa9448ea8"
+content-hash = "a9aa7dc559fc3a8cf17eb288685cddd09bdd799050edf40f5110ba26d852ec83"
