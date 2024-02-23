@@ -42,23 +42,23 @@
       */
 
       // get all the timeslices
-      let els = Array.from(PRETALX.querySelectorAll(".timeslice"));
+      let els = Array.from(PRETALX.querySelectorAll(".bucket-label"));
 
       // make sure they're sorted by date. This is probably unnecessary because they probably already are
       els.sort((a,b) => {
-        const aDate = new Date(a.dataset.slice);
-        const bDate = new Date(b.dataset.slice);
+        const aDate = new Date(a.dataset.date);
+        const bDate = new Date(b.dataset.date);
         return aDate.getTime() - bDate.getTime();
       });
 
-      let firstSlice = new Date(els[0].dataset.slice);
+      let firstSlice = new Date(els[0].dataset.date);
       if (firstSlice >= date) {
         els[0].scrollIntoView(true);
         return;
       }
 
       for (let i = 0 ; i < els.length; i++) {
-        let sliceStart = new Date(els[i].dataset.slice);
+        let sliceStart = new Date(els[i].dataset.date);
         if (sliceStart > date) {
           els[i - 1].scrollIntoView(true);
           return;
@@ -71,23 +71,23 @@
       // Check if the location hash looks like a date
       // if it does, scroll to that date in the schedule
       let dateLike = /#(?<date>\d{4}-\d{2}-\d{2})/;
-      console.log(window.location.hash)
       var found = window.location.hash.match(dateLike);
       if (found) {
         let dateString = found.groups.date + "T00:00:00-0700";
-        console.log(dateString)
         let date = new Date(dateString);
-        checkShadowElement('.timeslice').then((timeslice) => {
+        checkShadowElement('.bucket-label').then((bucket) => {
           scrollToDate(date);
         });
       }
     }
 
     window.onload = () => {
-      window.addEventListener("hashchange", (event) => {
+      checkShadowElement('.bucket-label').then((bucket) => {
+        window.addEventListener("hashchange", (event) => {
+          scrollToHash();
+        });
         scrollToHash();
       });
-      scrollToHash();
     }
   </script>
 {% endblock %}
