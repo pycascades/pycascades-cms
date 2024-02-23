@@ -56,7 +56,7 @@ class LogsAdmin(ModelAdmin):
     inspect_view_enabled = True
 
 
-if "wagtail.contrib.modeladmin" in settings.INSTALLED_APPS:
+if "wagtail_modeladmin" in settings.INSTALLED_APPS:
     modeladmin_register(NetlifyConfigurationAdmin)
     modeladmin_register(DeploymentAdmin)
     modeladmin_register(LogsAdmin)
