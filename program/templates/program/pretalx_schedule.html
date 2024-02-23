@@ -96,6 +96,20 @@
       els[els.length - 1].scrollIntoView(true)
     }
 
+    function scrollToHash() {
+      let dateLike = /#(?<date>\d{4}-\d{2}-\d{2})/;
+      console.log(window.location.hash)
+      var found = window.location.hash.match(dateLike);
+      if (found) {
+        let dateString = found.groups.date + "T00:00:00-0700";
+        console.log(dateString)
+        let date = new Date(dateString);
+        checkShadowElement('.timeslice').then((timeslice) => {
+          scrollToDate(date);
+        });
+      }
+    }
+
     window.onload = () => {
       // Wait for schedule grid to load
       checkShadowElement('.c-grid-schedule').then((selector) => {
@@ -119,18 +133,9 @@
         ';
       PRETALX.appendChild( style );
       window.addEventListener("hashchange", (event) => {
-        let dateLike = /#(?<date>\d{4}-\d{2}-\d{2})/;
-        console.log(window.location.hash)
-        var found = window.location.hash.match(dateLike);
-        if (found) {
-            let dateString = found.groups.date + "T00:00:00-0700";
-            console.log(dateString)
-            let date = new Date(dateString);
-          checkShadowElement('.timeslice').then((timeslice) => {
-            scrollToDate(date);
-          });
-        }
+        scrollToHash();
       });
+      scrollToHash();
     }
   </script>
 {% endblock %}
