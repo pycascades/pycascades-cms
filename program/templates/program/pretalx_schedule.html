@@ -22,8 +22,6 @@
     // Pretalx Schedule tag which is inside shadow root
     const PRETALX = document.querySelector("pretalx-schedule").shadowRoot;
 
-    const TALK_MAP = JSON.parse('{{ talk_map | escapejs }}');
-
     // We check if an element is loaded inside pretalx-schedule
     const checkShadowElement = async selector => {
       while ( PRETALX.querySelector(selector) === null) {
@@ -32,32 +30,6 @@
       return PRETALX.querySelector(selector);
     };
 
-    // Rewrite pretalx links to point to out website instead
-    function rewriteLinks(selector) {
-      // Find each element that starts with the link we need
-      var els = selector.querySelectorAll("a[href^='https://pretalx.com/pycascades-{{ CONFERENCE_YEAR }}/talk/']");
-
-      // For each link
-      for (var i = 0, l = els.length; i < l; i++) {
-        var el = els[i];
-        var parts = el.href.split('/');
-        var lastSegment = parts.pop() || parts.pop();  // handle potential trailing slash
-        // set ID so we can reference a few for custom styling
-        el.setAttribute('id', lastSegment)
-
-        // for a few talks we also want to override the grid area to span across two tracks
-        if (['X7QMDR', 'JPTXGD', 'NCWZQQ'].indexOf(el.id) >= 0) {
-          el.classList.add("all-tracks");
-        }
-        if(TALK_MAP.hasOwnProperty(lastSegment)){
-          // override href
-          el.setAttribute('href', TALK_MAP[lastSegment]);
-        } else {
-          el.setAttribute('href', 'javascript:void(0)');
-          el.classList.add("no-link");
-        }
-      }
-    }
     function scrollToDate(date) {
       /*
         Scroll the page to the given time.
@@ -68,7 +40,6 @@
         - if the given time is between the first and last timeslice, we scroll to the
           latest timeslice that starts at or before our target time
       */
-
 
       // get all the timeslices
       let els = Array.from(PRETALX.querySelectorAll(".timeslice"));
@@ -111,27 +82,6 @@
     }
 
     window.onload = () => {
-      // Wait for schedule grid to load
-      checkShadowElement('.c-grid-schedule').then((selector) => {
-        rewriteLinks(selector)
-      });
-
-      // Or wait for linear schedule to load for smaller devices
-      checkShadowElement('.c-linear-schedule').then((selector) => {
-        rewriteLinks(selector)
-      });
-
-      // A few talks need to span across tracks so we override grid-row-end or grid-row-start
-      // We do that by injecting out own css inside pretalx schedule
-      var style = document.createElement('style')
-      style.innerHTML = '\
-        .c-linear-schedule-session.no-link:hover .info { border: none; } \
-        .all-tracks { \
-          grid-column-start: 2 !important; \
-          grid-column-end: 4 !important; \
-        } \
-        ';
-      PRETALX.appendChild( style );
       window.addEventListener("hashchange", (event) => {
         scrollToHash();
       });
