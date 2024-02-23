@@ -18,7 +18,7 @@ python = "3.10.4"
 # whenever you update anything else
 boto3 = "1.34.39"
 django = "5.0.2"
-wagtail = "5.2.3"
+wagtail = "6.0.1"
 wagtail-bakery = "0.8.0"
 gunicorn = "21.2.0"
 django-heroku = "0.3.1"
@@ -28,6 +28,7 @@ django-storages = "^1.13.2"
 cssmin = "^0.2.0"
 jsmin = "^3.0.0"
 pynetlify = "^0.1.1"
+wagtail-modeladmin = "2.0.0"
 
 
 [tool.poetry.dev-dependencies]
