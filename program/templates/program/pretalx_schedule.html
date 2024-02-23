@@ -23,7 +23,6 @@
     const PRETALX = document.querySelector("pretalx-schedule").shadowRoot;
 
     const TALK_MAP = JSON.parse('{{ talk_map | escapejs }}');
-    console.log(TALK_MAP)
 
     // We check if an element is loaded inside pretalx-schedule
     const checkShadowElement = async selector => {
@@ -59,6 +58,43 @@
         }
       }
     }
+    function scrollToDate(date) {
+      /*
+        Scroll the page to the given time.
+        Each timeslice represents an event starting at timeslice.dataset.slice, and ending some length of time later
+        This should mean that:
+        - if the given time is before the first timeslice, we scroll to the first timeslice
+        - if the given time is after the last timeslice, we scroll to the last timeslice
+        - if the given time is between the first and last timeslice, we scroll to the
+          latest timeslice that starts at or before our target time
+      */
+
+
+      // get all the timeslices, except the datebreaks
+      let els = Array.from(PRETALX.querySelectorAll(".timeslice"));
+
+      // make sure they're sorted by date. This is probably unnecessary because they probably already are
+      els.sort((a,b) => {
+        const aDate = new Date(a.dataset.slice);
+        const bDate = new Date(b.dataset.slice);
+        return aDate.getTime() - bDate.getTime();
+      });
+
+      let firstSlice = new Date(els[0].dataset.slice);
+      if (firstSlice >= date) {
+        els[0].scrollIntoView(true);
+        return;
+      }
+
+      for (let i = 0 ; i < els.length; i++) {
+        let sliceStart = new Date(els[i].dataset.slice);
+        if (sliceStart > date) {
+          els[i - 1].scrollIntoView(true);
+          return;
+        }
+      }
+      els[els.length - 1].scrollIntoView(true)
+    }
 
     window.onload = () => {
       // Wait for schedule grid to load
@@ -82,6 +118,19 @@
         } \
         ';
       PRETALX.appendChild( style );
+      window.addEventListener("hashchange", (event) => {
+        let dateLike = /#(?<date>\d{4}-\d{2}-\d{2})/;
+        console.log(window.location.hash)
+        var found = window.location.hash.match(dateLike);
+        if (found) {
+            let dateString = found.groups.date + "T00:00:00-0700";
+            console.log(dateString)
+            let date = new Date(dateString);
+          checkShadowElement('.timeslice').then((timeslice) => {
+            scrollToDate(date);
+          });
+        }
+      });
     }
   </script>
 {% endblock %}
