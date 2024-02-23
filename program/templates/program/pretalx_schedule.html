@@ -68,6 +68,8 @@
     }
 
     function scrollToHash() {
+      // Check if the location hash looks like a date
+      // if it does, scroll to that date in the schedule
       let dateLike = /#(?<date>\d{4}-\d{2}-\d{2})/;
       console.log(window.location.hash)
       var found = window.location.hash.match(dateLike);
