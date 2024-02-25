@@ -22,9 +22,6 @@
     // Pretalx Schedule tag which is inside shadow root
     const PRETALX = document.querySelector("pretalx-schedule").shadowRoot;
 
-    const TALK_MAP = JSON.parse('{{ talk_map | escapejs }}');
-    console.log(TALK_MAP)
-
     // We check if an element is loaded inside pretalx-schedule
     const checkShadowElement = async selector => {
       while ( PRETALX.querySelector(selector) === null) {
@@ -33,55 +30,64 @@
       return PRETALX.querySelector(selector);
     };
 
-    // Rewrite pretalx links to point to out website instead
-    function rewriteLinks(selector) {
-      // Find each element that starts with the link we need
-      var els = selector.querySelectorAll("a[href^='https://pretalx.com/pycascades-{{ CONFERENCE_YEAR }}/talk/']");
+    function scrollToDate(date) {
+      /*
+        Scroll the page to the given time.
+        Each timeslice represents an event starting at timeslice.dataset.slice, and ending some length of time later
+        This should mean that:
+        - if the given time is before the first timeslice, we scroll to the first timeslice
+        - if the given time is after the last timeslice, we scroll to the last timeslice
+        - if the given time is between the first and last timeslice, we scroll to the
+          latest timeslice that starts at or before our target time
+      */
 
-      // For each link
-      for (var i = 0, l = els.length; i < l; i++) {
-        var el = els[i];
-        var parts = el.href.split('/');
-        var lastSegment = parts.pop() || parts.pop();  // handle potential trailing slash
-        // set ID so we can reference a few for custom styling
-        el.setAttribute('id', lastSegment)
+      // get all the timeslices
+      let els = Array.from(PRETALX.querySelectorAll(".bucket-label"));
 
-        // for a few talks we also want to override the grid area to span across two tracks
-        if (['X7QMDR', 'JPTXGD', 'NCWZQQ'].indexOf(el.id) >= 0) {
-          el.classList.add("all-tracks");
+      // make sure they're sorted by date. This is probably unnecessary because they probably already are
+      els.sort((a,b) => {
+        const aDate = new Date(a.dataset.date);
+        const bDate = new Date(b.dataset.date);
+        return aDate.getTime() - bDate.getTime();
+      });
+
+      let firstSlice = new Date(els[0].dataset.date);
+      if (firstSlice >= date) {
+        els[0].scrollIntoView(true);
+        return;
+      }
+
+      for (let i = 0 ; i < els.length; i++) {
+        let sliceStart = new Date(els[i].dataset.date);
+        if (sliceStart > date) {
+          els[i - 1].scrollIntoView(true);
+          return;
         }
-        if(TALK_MAP.hasOwnProperty(lastSegment)){
-          // override href
-          el.setAttribute('href', TALK_MAP[lastSegment]);
-        } else {
-          el.setAttribute('href', 'javascript:void(0)');
-          el.classList.add("no-link");
-        }
+      }
+      els[els.length - 1].scrollIntoView(true)
+    }
+
+    function scrollToHash() {
+      // Check if the location hash looks like a date
+      // if it does, scroll to that date in the schedule
+      let dateLike = /#(?<date>\d{4}-\d{2}-\d{2})/;
+      var found = window.location.hash.match(dateLike);
+      if (found) {
+        let dateString = found.groups.date + "T00:00:00-0700";
+        let date = new Date(dateString);
+        checkShadowElement('.bucket-label').then((bucket) => {
+          scrollToDate(date);
+        });
       }
     }
 
     window.onload = () => {
-      // Wait for schedule grid to load
-      checkShadowElement('.c-grid-schedule').then((selector) => {
-        rewriteLinks(selector)
+      checkShadowElement('.bucket-label').then((bucket) => {
+        window.addEventListener("hashchange", (event) => {
+          scrollToHash();
+        });
+        scrollToHash();
       });
-
-      // Or wait for linear schedule to load for smaller devices
-      checkShadowElement('.c-linear-schedule').then((selector) => {
-        rewriteLinks(selector)
-      });
-
-      // A few talks need to span across tracks so we override grid-row-end or grid-row-start
-      // We do that by injecting out own css inside pretalx schedule
-      var style = document.createElement('style')
-      style.innerHTML = '\
-        .c-linear-schedule-session.no-link:hover .info { border: none; } \
-        .all-tracks { \
-          grid-column-start: 2 !important; \
-          grid-column-end: 4 !important; \
-        } \
-        ';
-      PRETALX.appendChild( style );
     }
   </script>
 {% endblock %}
