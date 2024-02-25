@@ -42,23 +42,29 @@
       */
 
       // get all the timeslices
-      let els = Array.from(PRETALX.querySelectorAll(".bucket-label"));
+      var els = Array.from(PRETALX.querySelectorAll(".bucket-label"));
+      var datasetFieldName = "date";
+
+      if (els.length < 1 ) {
+        els = Array.from(PRETALX.querySelectorAll(".timeslice:not(.datebreak)"));
+        datasetFieldName = "slice";
+      }
 
       // make sure they're sorted by date. This is probably unnecessary because they probably already are
       els.sort((a,b) => {
-        const aDate = new Date(a.dataset.date);
-        const bDate = new Date(b.dataset.date);
+        const aDate = new Date(a.dataset[datasetFieldName]);
+        const bDate = new Date(b.dataset[datasetFieldName]);
         return aDate.getTime() - bDate.getTime();
       });
 
-      let firstSlice = new Date(els[0].dataset.date);
+      let firstSlice = new Date(els[0].dataset[datasetFieldName]);
       if (firstSlice >= date) {
         els[0].scrollIntoView(true);
         return;
       }
 
       for (let i = 0 ; i < els.length; i++) {
-        let sliceStart = new Date(els[i].dataset.date);
+        let sliceStart = new Date(els[i].dataset[datasetFieldName]);
         if (sliceStart > date) {
           els[i - 1].scrollIntoView(true);
           return;
@@ -75,14 +81,14 @@
       if (found) {
         let dateString = found.groups.date + "T00:00:00-0700";
         let date = new Date(dateString);
-        checkShadowElement('.bucket-label').then((bucket) => {
+        checkShadowElement(":is(div[data-slice], div[data-date])").then((bucket) => {
           scrollToDate(date);
         });
       }
     }
 
     window.onload = () => {
-      checkShadowElement('.bucket-label').then((bucket) => {
+      checkShadowElement(":is(div[data-slice], div[data-date])").then((bucket) => {
         window.addEventListener("hashchange", (event) => {
           scrollToHash();
         });
