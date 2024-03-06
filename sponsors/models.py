@@ -68,11 +68,16 @@ class SponsorTier(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, blank=True)
     type = models.CharField(max_length=255, choices=TYPE_CHOICES)
+    priority = models.PositiveSmallIntegerField(
+        default=0,
+        help_text="Sorting order on the page (higher number means higher up)",
+    )
 
     panels = [
         FieldPanel("name"),
         FieldPanel("slug"),
         FieldPanel("type"),
+        FieldPanel("priority"),
     ]
 
     def __str__(self):
