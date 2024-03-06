@@ -11,7 +11,7 @@ license = "MIT"
 # usually defined in the runtime.txt.
 # NOTE: THIS MUST BE PINNED! If you change it here, also change it in
 # the GitHub actions, the Dockerfile, and the Heroku config
-python = "3.10.4"
+python = "^3.10.4"
 # we don't really care too much about the boto3 version
 # but boto3's version constraints make dependency resolution
 # take tens of minutes. Update the boto3 pin to the latest version
