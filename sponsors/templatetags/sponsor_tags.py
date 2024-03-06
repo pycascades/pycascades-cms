@@ -18,16 +18,20 @@ def non_profit_sponsors():
 
 @register.simple_tag
 def corporate_tiers():
-    return SponsorTier.objects.filter(
-        sponsors__isnull=False, type=SponsorTier.CORPORATE
-    ).distinct()
+    return (
+        SponsorTier.objects.filter(sponsors__isnull=False, type=SponsorTier.CORPORATE)
+        .order_by("-priority")
+        .distinct()
+    )
 
 
 @register.simple_tag
 def npo_tiers():
-    return SponsorTier.objects.filter(
-        sponsors__isnull=False, type=SponsorTier.NPO
-    ).distinct()
+    return (
+        SponsorTier.objects.filter(sponsors__isnull=False, type=SponsorTier.NPO)
+        .order_by("-priority")
+        .distinct()
+    )
 
 
 @register.inclusion_tag("sponsors/sponsor_logos_smol.html")
