@@ -32,7 +32,7 @@ wagtail-modeladmin = "2.0.0"
 
 
 [tool.poetry.dev-dependencies]
-black = "^24.1"
+black = "^24.3"
 pre-commit = "^3.6.0"
 
 [build-system]
