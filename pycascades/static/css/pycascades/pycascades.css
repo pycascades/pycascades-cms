@@ -715,6 +715,7 @@ footer .links li a:hover {
     height: 90px;
 }
 
+#sponsors .sponsor-logos .item.bronze .logo,
 #sponsors .sponsor-logos .item.community .logo,
 #sponsors .sponsor-logos .item.supporting .logo,
 #sponsors .sponsor-logos .item.supporting_npo .logo,
@@ -788,6 +789,7 @@ footer .links li a:hover {
         height: 90px;
     }
 
+    #sponsors .sponsor-logos .item.bronze .logo,
     #sponsors .sponsor-logos .item.community .logo,
     #sponsors .sponsor-logos .item.supporting .logo,
     #sponsors .sponsor-logos .item.supporting_npo .logo,
