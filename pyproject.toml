@@ -17,7 +17,7 @@ python = "^3.10.4"
 # take tens of minutes. Update the boto3 pin to the latest version
 # whenever you update anything else
 boto3 = "1.34.39"
-django = "5.0.2"
+django = "5.0.4"
 wagtail = "6.0.1"
 wagtail-bakery = "0.8.0"
 gunicorn = "21.2.0"
