@@ -16,7 +16,7 @@ python = "^3.10.4"
 # but boto3's version constraints make dependency resolution
 # take tens of minutes. Update the boto3 pin to the latest version
 # whenever you update anything else
-boto3 = "1.34.39"
+boto3 = "1.34.136"
 django = "5.0.2"
 wagtail = "6.1.2"
 wagtail-bakery = "0.8.0"
