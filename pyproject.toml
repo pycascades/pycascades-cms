@@ -18,7 +18,7 @@ python = "^3.10.4"
 # whenever you update anything else
 boto3 = "1.34.136"
 django = "5.0.6"
-wagtail = "6.1.2"
+wagtail = "6.1.3"
 wagtail-bakery = "0.8.0"
 gunicorn = "22.0.0"
 django-heroku = "0.3.1"
